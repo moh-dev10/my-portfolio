@@ -3,9 +3,17 @@ import React from 'react'
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Contact, Download  } from 'lucide-react';
 import Container from '../components/Container';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const { t } = useTranslation();
+
+  // إعدادات الحركة
+  const containerVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+  
   return (
     <section id='hero' className=' min-h-screen '>
       <Container>
@@ -13,7 +21,11 @@ const Hero = () => {
         <div className='grid grid-cols-12  items-center justify-center text-center md:text-start  gap-8 pt-20'>
 
         
-        <div className='col-span-12 lg:col-span-7 space-y-6'>
+        <motion.div className='col-span-12 lg:col-span-7 space-y-6'
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        >
           {/* badge */}
           <div className='flex items-center text-brand text-sm bg-brand/10 w-max px-3 py-1 rounded-full 
           font-black animate-pulse'>
@@ -46,14 +58,18 @@ const Hero = () => {
           </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* image side */}
-        <div className='col-span-12 lg:col-span-5 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border-brand-light border-2  overflow-hidden mx-auto'>
+        <motion.div className='col-span-12 lg:col-span-5 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border-brand-light border-2  overflow-hidden mx-auto'>
           <img src="images/profileImg.webp"
            alt="Mohamed - Frontend Developer" 
-          className='w-full h-auto object-cover ' />
-        </div>
+          className='w-full h-auto object-cover '
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 , delay: 0.3}}
+          />
+        </motion.div>
         </div>
       
     </Container>
