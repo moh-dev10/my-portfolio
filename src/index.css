@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  /* الخطوط اللي تفاهمنا عليها */
+  --font-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-cairo: "Cairo", sans-serif;
+
+  /* الألوان الأساسية (Purple Brand) */
+  --color-brand: #8b5cf6;
+  --color-brand-light: #a78bfa;
+  --color-brand-dark: #7c3aed;
+}
+
+/* 2. منطق الألوان (Light & Dark Mode) */
+@layer base {
+  :root {
+    --bg-main: #f8fafc;        /* خلفية فاتحة مريحة */
+    --bg-card: #ffffff;        /* كروت بيضاء */
+    --text-main: #1e293b;      /* نص رمادي غامق */
+    --text-muted: #64748b;     /* نص باهت للوصف */
+    --border-color: #e2e8f0;   /* حدود خفيفة */
+    
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* كلاس الـ Dark Mode اللي راح نتحكموا فيه بـ React */
+  .dark {
+    --bg-main: #020617;        /* خلفية سوداء زرقاء (Deep Dark) */
+    --bg-card: #0f172a;        /* كروت رمادية غامقة */
+    --text-main: #f1f5f9;      /* نص أبيض */
+    --text-muted: #94a3b8;     /* نص رمادي فاتح */
+    --border-color: #1e293b;   /* حدود غامقة */
+  }
+}
+
+/* 3. الـ Global Styles والـ Bento Grid */
+@layer components {
+  /* كلاس الكروت اللي شفناها في الصور */
+  .bento-card {
+    @apply rounded-[2.5rem] p-6 border transition-all duration-300;
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+  }
+
+  .bento-card:hover {
+    @apply shadow-xl scale-[1.01];
+    border-color: var(--color-brand-light);
+  }
+
+  /* الزر الأساسي */
+  .btn-primary {
+    @apply px-6 py-3 flex items-center gap-3 rounded-xl font-bold text-white transition-all active:scale-95;
+    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, var(--color-brand-light), var(--color-brand-dark));
+    box-shadow: 0 4px 15px var(--color-brand-light);
+  }
+
+  /* الزر الثانوي */
+  .btn-secondary {
+    @apply px-6 py-3 flex items-center gap-3 rounded-xl font-bold
+      text-gray-800 bg-gray-200 transition-all duration-300 active:scale-95 cursor-pointer;
+  }
+
+  .btn-secondary:hover {
+    border: 1px solid var(--color-brand-light);
+  }
+
+  /* البوتوم ناف (Glassmorphism) */
+  .glass-nav {
+    @apply fixed bottom-6 left-1/2 -translate-x-1/2 px-0 py-0 rounded-full border backdrop-blur-xl z-50;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--border-color);
+  }
+}
+
+/* تطبيق الخطوط حسب اتجاه اللغة */
+:root { font-family: var(--font-jakarta); }
+[dir="rtl"] { font-family: var(--font-cairo); }
