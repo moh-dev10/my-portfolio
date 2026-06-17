@@ -1,9 +1,11 @@
 import React from 'react';
 import { Home, LayoutGrid, MessageSquare, User, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import {useNavigate} from 'react-router-dom';
 
 const BottomNav = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const navItems = [
     { icon: <Home size={15} />, label: 'Home', id: 'home' },
@@ -11,15 +13,24 @@ const BottomNav = () => {
     { icon: <User size={15} />, label: 'About', id: 'about' },
   ];
 
+  const [activeNav, setActiveNav] = React.useState('home');
+
+  const handleNavigation = (id) => {
+    setActiveNav(id);
+    navigate(`/${id === 'home'? '' : id}`);
+  }
+
   return (
     <div className=" md:hidden glass-nav ">
       {/* Container الزجاجي */}
-      <nav className="  flex items-center gap-2 px-2 py rounded-full bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/20 dark:border-slate-800 shadow-2xl">
+      <nav className="flex items-center gap-2 px-2 py rounded-full bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/20 dark:border-slate-800 shadow-2xl">
         
         {navItems.map((item) => (
           <button
             key={item.id}
-            className="p-4 rounded-full text-[--text-main] hover:bg-brand/20 hover:text-brand transition-all active:scale-90 group relative"
+            onClick={() => handleNavigation(item.id)}
+            className={`p-4 rounded-full text-[--text-main] hover:bg-brand/20 hover:text-brand cursor-pointer
+              ${activeNav === item.id ? 'bg-brand text-white' : ''} transition-all active:scale-90 group relative`}
           >
             {item.icon}
             {/* Tooltip خفيف يظهر فوق الأيقونة */}

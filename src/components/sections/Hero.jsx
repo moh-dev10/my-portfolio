@@ -2,7 +2,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Contact, Download  } from 'lucide-react';
-import Container from '../components/Container';
+import Container from '../Container';
 import { delay, motion } from 'framer-motion';
 
 const Hero = () => {
@@ -94,8 +94,10 @@ const Hero = () => {
         variants={itemVariants}
         initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 , delay: 0.3}}>
-          <img src="images/profileImg.webp"
+          transition={{ duration: 1 ,ease: "circOut",  delay: 0.3}}
+          whileHover={{ scale: 1.05 ,rotate: 2}}
+          whileTap={{ scale: 0.95 ,rotate: -2}}>
+          <img src="/images/profileImg.webp"
            alt="Mohamed - Frontend Developer" 
           className='w-full h-auto object-cover '
           />

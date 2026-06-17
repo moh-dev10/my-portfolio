@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { Sun, Moon, Languages } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -19,9 +20,9 @@ const Header = () => {
   
 
   const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'About', href: '#about' },
+  { name: 'Home', to: '/' },
+  { name: 'Projects', to: '/projects' },
+  { name: 'About', to: '/about' },
 ];
 
   return (
@@ -34,13 +35,13 @@ const Header = () => {
       {/* Desktop Navigation - تظهر فقط من md وفوق */}
       <nav className="hidden md:flex items-center gap-1 p-1 bg-brand/5 dark:bg-slate-900/40 backdrop-blur-md rounded-2xl border border-white/10">
         {navLinks.map((link) => (
-          <a
+          <Link
             key={link.name}
-            href={link.href}
+            to={link.to}
             className="px-6 py-2 rounded-xl text-sm font-bold transition-all hover:bg-white/10 hover:text-brand"
           >
             {t(link.name.toLowerCase())} {/* تأكد من إضافة الترجمة في config.js */}
-          </a>
+          </Link>
         ))}
       </nav>
       

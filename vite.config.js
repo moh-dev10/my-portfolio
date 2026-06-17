@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/my-portfolio/'
+  base: './'// هذا يجعل كل الروابط نسبية، فتعمل في أي مكان
 
 })
 

@@ -1,11 +1,12 @@
 import React from 'react'
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header'
 import BottomNav from './components/BottomNav'
 import { ThemeProvider } from './context/ThemeContext'
-import Hero from './features/Hero'
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import TechSkills from './features/TechSkills';
+import Home from './pages/Home'
+import AboutMe from './pages/AboutMe';
 
 const App = () => {
 
@@ -22,20 +23,28 @@ useEffect(() => {
 
   return (
     <>
+    <HashRouter>
+
       <ThemeProvider>
 
         <main>
 
          <Header />
 
-         <Hero />
+         <Routes>{/* هنا نحدد الصفحات */}
+            <Route path="/" element={<Home/>} />
 
-         <TechSkills />
-
+            <Route path="/home" element={<Home/>} />
+            {/* <Route path="/about" element={<AboutMe/>} /> */}
+            <Route path="/about" element={<AboutMe/>} />
+         </Routes>
+         
         </main>
 
         <BottomNav />
       </ThemeProvider>
+
+    </HashRouter>
     </>
   )
 }

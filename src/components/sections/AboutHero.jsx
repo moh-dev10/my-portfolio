@@ -1,0 +1,52 @@
+import React from 'react'
+import Container from '../Container';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
+
+const AboutHero = () => {
+    const { t } = useTranslation();
+  return (
+    <section id='about' className=' min-h-screen py-24 '>
+      <Container>
+        <div className="grid md:grid-cols-12  gap-16 items-center justify-content text-center ">
+            <div className="md:col-span-5 flex items-center justify-center relative group">
+                <div className="  inset-0 bg-brand/20 rounded-3xl rotate-3 group-hover:rotate-6 transition-transform duration-300">
+                <img src="/images/profileImg.webp"
+                 alt="mohamed" 
+                 className=" relative rounded-2xl shadow-lg max-w-xs md:max-w-md mx-auto h-auto " />
+                </div>
+                    {/* تأثير التوهج الناعم */}
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
+                <div className="absolute top-6 -right-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
+            </div>
+            <div className="md:col-span-7 space-y-8 text-start">
+                
+                    <h1 className="text-4xl font-extrabold mb-8">{t('aboutMe')}</h1>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">{t('aboutMeDescription')}</p>
+            
+            {/* مهارات سريعة (Badges) */}
+        <div className="flex flex-wrap justify-center md:justify-start gap-2">
+          {['React', 'WordPress', 'TypeScript', 'Tailwind'].map((skill) => (
+            <span key={skill} className="px-4 py-1.5 bg-brand/10 text-brand dark:bg-brand/20 rounded-full font-medium text-sm">
+              {skill}
+            </span>
+          ))}
+        </div>
+
+            {/* أزرار تفاعلية (CTA) */}
+            <div className="flex gap-4">
+              <motion.button className="bg-brand text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg shadow-brand/20"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              >
+              {t('hireMe')}
+              </motion.button>
+            </div>
+            </div>
+        </div>
+      </Container>
+    </section>
+  )
+}
+
+export default AboutHero
