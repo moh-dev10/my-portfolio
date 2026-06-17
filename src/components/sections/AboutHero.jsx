@@ -2,18 +2,21 @@ import React from 'react'
 import Container from '../Container';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import heroImg from '../../assets/images/profileImg.webp';
+import SkillsGrid from './SkillsGrid';
 
 const AboutHero = () => {
     const { t } = useTranslation();
   return (
+    <>
     <section id='about' className=' min-h-screen py-24 '>
       <Container>
         <div className="grid md:grid-cols-12  gap-16 items-center justify-content text-center ">
             <div className="md:col-span-5 flex items-center justify-center relative group">
                 <div className="  inset-0 bg-brand/20 rounded-3xl rotate-3 group-hover:rotate-6 transition-transform duration-300">
-                <img src="/images/profileImg.webp"
+                <img src={heroImg}
                  alt="mohamed" 
-                 className=" relative rounded-2xl shadow-lg max-w-xs md:max-w-md mx-auto h-auto " />
+                 className=" relative rounded-2xl shadow-lg max-w-xs md:max-w-sm mx-auto h-auto " />
                 </div>
                     {/* تأثير التوهج الناعم */}
                 <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
@@ -46,6 +49,9 @@ const AboutHero = () => {
         </div>
       </Container>
     </section>
+
+    <SkillsGrid/>
+    </>
   )
 }
 

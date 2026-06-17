@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight, Contact, Download  } from 'lucide-react';
 import Container from '../Container';
 import { delay, motion } from 'framer-motion';
+import heroImg from '../../assets/images/profileImg.webp';
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -97,9 +98,9 @@ const Hero = () => {
           transition={{ duration: 1 ,ease: "circOut",  delay: 0.3}}
           whileHover={{ scale: 1.05 ,rotate: 2}}
           whileTap={{ scale: 0.95 ,rotate: -2}}>
-          <img src="/images/profileImg.webp"
+          <img src={heroImg}
            alt="Mohamed - Frontend Developer" 
-          className='w-full h-auto object-cover '
+          className='w-full h-auto object-cover'
           />
         </motion.div>
         </div>

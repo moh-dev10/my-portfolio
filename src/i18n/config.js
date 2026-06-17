@@ -1,6 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
+import { title } from 'framer-motion/m';
 
 i18n
   .use(LanguageDetector)
@@ -29,8 +30,9 @@ i18n
 
           // About Section - تأكد من إضافة المفاتيح الناقصة هنا أيضًا
           aboutMe: "About Me",
-          aboutMeDescription: "I'm Mohamed, a Front-End Developer & WordPress Specialist. I have extensive experience in building high-performance websites with a focus on modern UI/UX design. I am passionate about turning ideas into digital realities that make a positive impact."
-          
+          aboutMeDescription: "I'm Mohamed, a Front-End Developer & WordPress Specialist. I have extensive experience in building high-performance websites with a focus on modern UI/UX design. I am passionate about turning ideas into digital realities that make a positive impact.",
+          tech_stack:"My Tech Stack",
+          title:"Wordpress"
         }
       },
       ar: {
@@ -75,7 +77,9 @@ i18n
 
           // About Section - تأكد من إضافة المفاتيح الناقصة هنا أيضًا
           aboutMe: "À propos de moi",
-          aboutMeDescription: "Je suis Mohamed, développeur Front-End & Expert WordPress. J'ai une vaste expérience dans la création de sites web à haute performance avec un focus sur le design moderne et convivial. Je suis passionné par la transformation des idées en réalités numériques qui ont un impact positif."
+          aboutMeDescription: "Je suis Mohamed, développeur Front-End & Expert WordPress. J'ai une vaste expérience dans la création de sites web à haute performance avec un focus sur le design moderne et convivial. Je suis passionné par la transformation des idées en réalités numériques qui ont un impact positif.",
+          tech_stack:""
+          
         }
       }
     },
