@@ -3,7 +3,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, Contact, Download  } from 'lucide-react';
 import Container from '../components/Container';
-import { motion } from 'framer-motion';
+import { delay, motion } from 'framer-motion';
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -11,7 +11,18 @@ const Hero = () => {
   // إعدادات الحركة
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { opacity: 1, y: 0, 
+      transition: 
+      { staggerChildren: 0.4 } }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 ,
+      transition :{
+         duration: 0.8,
+         ease: [0.22, 1, 0.36, 1]}
+    },
   };
   
   return (
@@ -27,22 +38,29 @@ const Hero = () => {
         variants={containerVariants}
         >
           {/* badge */}
-          <div className='flex items-center text-brand text-sm bg-brand/10 w-max px-3 py-1 rounded-full 
-          font-black animate-pulse'>
+          <motion.div className='flex items-center text-brand text-sm bg-brand/10 w-max px-3 py-1 rounded-full 
+          font-black animate-pulse'
+          initial="hidden"
+          animate="visible"
+          variants={itemVariants}
+          >
             <span className=' flex items-center w-2 h-2 bg-brand rounded-full me-2'></span>
             {t('hero_badge')}
-          </div>
+          </motion.div>
           {/* title */}
-          <h1 className='text-4xl sm:text-5xl md:text-6xl  font-black tracking-tight leading-[1.2em]'>
+          <motion.h1 className='text-4xl sm:text-5xl md:text-6xl  font-black tracking-tight leading-[1.2em]'
+          variants={itemVariants}>
             {t('hero_title')}
-          </h1>
+          </motion.h1>
           {/* description */}
-          <p className='text-sm sm:text-lg max-w-xl mb-8 '>
+          <motion.p className='text-sm sm:text-lg max-w-xl mb-8 '
+          variants={itemVariants}>
             {t('hero_desc')}
-          </p>
+          </motion.p>
 
           {/* buttons */}
-          <div className=' space-y-4'>
+          <motion.div className=' space-y-4'
+          variants={itemVariants}>
             <div className='flex flex-col  items-center md:items-start md:flex-row md:flex-wrap gap-4'>
               <button className=' flex items-center justify-center gap-3 max-w-fit btn-primary'>
                 {t('projects')}
@@ -57,7 +75,7 @@ const Hero = () => {
             {t('cv_button')}
           </button>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* image side */}
