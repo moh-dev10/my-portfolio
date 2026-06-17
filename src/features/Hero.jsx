@@ -10,15 +10,15 @@ const Hero = () => {
 
   // إعدادات الحركة
   const containerVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, 
+    hidden: { opacity: 0},
+    visible: { opacity: 1, 
       transition: 
       { staggerChildren: 0.4 } }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 ,
+    hidden: { opacity: 0 , y: 20 },
+    visible: { opacity: 1 , y: 0,
       transition :{
          duration: 0.8,
          ease: [0.22, 1, 0.36, 1]}
@@ -60,20 +60,31 @@ const Hero = () => {
 
           {/* buttons */}
           <motion.div className=' space-y-4'
-          variants={itemVariants}>
-            <div className='flex flex-col  items-center md:items-start md:flex-row md:flex-wrap gap-4'>
-              <button className=' flex items-center justify-center gap-3 max-w-fit btn-primary'>
+          variants={containerVariants}>
+            <div className='flex flex-col  items-center md:items-start md:flex-row md:flex-wrap gap-4'
+            >
+              <motion.button className=' flex items-center justify-center gap-3 max-w-fit btn-primary transition-all duration-300 md:hover:scale-110 hover:shadow-lg cursor-pointer group'
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}>
                 {t('projects')}
-                <ArrowRight size={18}/>
-              </button>
-              <button className=' flex items-center justify-center gap-3 max-w-fit btn-secondary'>
+                <ArrowRight size={18} className='group-hover:translate-x-1 transition-transform'/>
+              </motion.button>
+              <motion.button className=' flex items-center justify-center gap-3 max-w-fit btn-secondary transition-all duration-300 md:hover:scale-110 hover:shadow-lg cursor-pointer group'
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              >
                 {t('hire')}
                 <Contact size={18}/>
-              </button>
-          <button className='md:w-full flex items-center justify-center sm:justify-start gap-2  cursor-pointer hover:underline'>
-            <Download size={18} className='inline mr-2' />
-            {t('cv_button')}
-          </button>
+              </motion.button>
+              <motion.button className='md:w-full flex items-center justify-center sm:justify-start gap-2 transition-all duration-300 cursor-pointer hover:underline'
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}>
+                <Download size={18} className='inline mr-2' />
+                {t('cv_button')}
+              </motion.button>
             </div>
           </motion.div>
         </motion.div>
