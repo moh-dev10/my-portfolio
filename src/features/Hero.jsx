@@ -79,13 +79,14 @@ const Hero = () => {
         </motion.div>
 
         {/* image side */}
-        <motion.div className='col-span-12 lg:col-span-5 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border-brand-light border-2  overflow-hidden mx-auto'>
+        <motion.div className='col-span-12 lg:col-span-5 w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full border-brand-light border-2  overflow-hidden mx-auto'
+        variants={itemVariants}
+        initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 , delay: 0.3}}>
           <img src="images/profileImg.webp"
            alt="Mohamed - Frontend Developer" 
           className='w-full h-auto object-cover '
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 , delay: 0.3}}
           />
         </motion.div>
         </div>
