@@ -26,10 +26,10 @@ const Header = () => {
 ];
 
   return (
-    <header className="fixed top-0 left-0 w-full p-6 flex justify-between items-center z-50">
+    <header className="fixed top-0 left-0 w-full p-6  bg-white/20 dark:bg-brand/20 backdrop-blur-2xl    flex justify-between items-center z-50">
       {/* Logo */}
       <div className="text-2xl font-black tracking-tighter text-brand">
-        Moh<span className="text-[--text-main]">Dev.</span>
+        Moh<span className="text-[--text-main]">Dev.10</span>
       </div>
 
       {/* Desktop Navigation - تظهر فقط من md وفوق */}
