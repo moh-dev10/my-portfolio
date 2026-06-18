@@ -15,7 +15,9 @@ const AboutHero = () => {
                 <div className=" bg-linear-to-l from-brand-dark/45 via-55%  to-brand/30 dark:bg-brand/40 rounded-3xl rotate-3 p-2 group-hover:rotate-6 transition-transform duration-300">
                 <img src={heroImg}
                  alt="mohamed" 
-                 className="rounded-2xl shadow-lg max-w-[50vw] md:max-w-sm mx-auto h-auto " />
+                 width="200"
+                 height="200"
+                 className="rounded-2xl shadow-lg  md:max-w-sm mx-auto h-auto " />
                 </div>
                 <div className='flex items-center gap-2 absolute -bottom-3 right-18 px-3 py-2 rounded-3xl bg-white '>
                   <span className='flex items-center w-3 h-3 rounded-full bg-green-500 animate-pulse'></span>

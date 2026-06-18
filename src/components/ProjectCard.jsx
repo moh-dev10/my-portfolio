@@ -9,11 +9,13 @@ import { projectsData } from '../data/projects'
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className='overflow-hidden rounded-3xl bg-gray-100 dark:bg-gray-900 h-full flex flex-col'>
-        <div className='group relative overflow-hidden'>
+    <article className='overflow-hidden rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm h-full flex flex-col'>
+        <figure className='group relative overflow-hidden'>
             <img
              src={project.image}
              alt={project.title}
+             loading='lazy'
+             decoding='async'
              className=' w-full aspect-5/3 object-cover  transition-all duration-500 group-hover:scale-110'/>
              
              {/* {overlay} */}
@@ -28,31 +30,31 @@ const ProjectCard = ({ project }) => {
                 </span>
                ))}
              </div>
-        </div>
+        </figure>
 
       
-        <div className=' flex flex-col gap-4 p-6 flex-glow '>
-          <div className='flex items-center justify-between'>
+        <div className=' flex flex-col gap-4 p-6 grow '>
+          <header className='flex items-center justify-between'>
              <h3 className='font-bold  hover:text-brand transition-colors duration-300'>
                 {project.title}
                 </h3>
              <ArrowUpRight size={18} className='text-brand cursor-pointer hover:rotate-45 transition-transform duration-300'/>
-          </div>
-             <p className='text-gray-500 dark:text-gray-300 text-sm tracking-normal line-clamp-2'>
+          </header>
+             <p className='text-muted dark:text-gray-300 text-sm tracking-normal line-clamp-2'>
                 {project.desc}
                 </p>
              <div className='mt-auto pt-4'>
                  <hr className='border-gray-200 dark:border-gray-700 mb-4' />
-                 <div className='flex justify-between items-center'>
-                 <p className='text-xs text-green-500 bg-green-700/20 px-3 py-1 rounded-2xl border'>
+                 <footer className='flex justify-between items-center'>
+                 <span className='text-xs text-green-500 bg-green-700/20 px-3 py-1 rounded-2xl border'>
                  LIVE
-                 </p>
-                 <p className='text-gray-500 dark:text-gray-400'>{project.date}</p>
-                </div>
+                 </span>
+                 <time className='text-gray-500 dark:text-gray-400'>{project.date}</time>
+                </footer>
              </div>   
         </div>
       
-    </div>
+    </article>
   )
 }
 
