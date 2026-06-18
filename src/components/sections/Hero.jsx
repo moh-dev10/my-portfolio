@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ArrowRight, Contact, Download  } from 'lucide-react';
 import Container from '../Container';
 import { delay, motion } from 'framer-motion';
-import heroImg from '../../assets/images/profileImg.webp';
+import heroImg from '/images/profileImg.webp';
 
 const Hero = () => {
   const { t } = useTranslation();

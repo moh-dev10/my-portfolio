@@ -9,7 +9,7 @@ import { projectsData } from '../data/projects'
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className='overflow-hidden rounded-3xl bg-gray-100 dark:bg-gray-800 h-full flex flex-col'>
+    <div className='overflow-hidden rounded-3xl bg-gray-100 dark:bg-gray-900 h-full flex flex-col'>
         <div className='group relative overflow-hidden'>
             <img
              src={project.image}
@@ -22,7 +22,7 @@ const ProjectCard = ({ project }) => {
             {/* {skills} */}
              <div className='flex gap-2 absolute bottom-4 left-2 flex-wrap z-10'>
                {project.skills?.map((skill ,index) => (
-                <span key={index} className='px-3 py-1 text-xs bg-white/20 backdrop-blur-md rounded-full text-white border border-white/10'
+                <span key={index} className='uppercase px-3 py-1 text-xs bg-white/20 backdrop-blur-md rounded-full text-white border border-white/10'
                 >
                     {skill}
                 </span>
@@ -31,9 +31,9 @@ const ProjectCard = ({ project }) => {
         </div>
 
       
-        <div className=' flex flex-col gap-4 p-6 flex-glow'>
+        <div className=' flex flex-col gap-4 p-6 flex-glow '>
           <div className='flex items-center justify-between'>
-             <h3 className='font-bold dark:text-white hover:text-brand transition-colors duration-300'>
+             <h3 className='font-bold  hover:text-brand transition-colors duration-300'>
                 {project.title}
                 </h3>
              <ArrowUpRight size={18} className='text-brand cursor-pointer hover:rotate-45 transition-transform duration-300'/>

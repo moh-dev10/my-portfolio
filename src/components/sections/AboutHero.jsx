@@ -2,7 +2,7 @@ import React from 'react'
 import Container from '../Container';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import heroImg from '../../assets/images/profileImg.webp';
+import heroImg from '/images/profileImg.webp';
 import SkillsGrid from './SkillsGrid';
 
 const AboutHero = () => {
@@ -12,17 +12,17 @@ const AboutHero = () => {
       <Container>
         <div className="grid md:grid-cols-12  gap-16 items-center justify-content text-center ">
             <div className="md:col-span-5 flex items-center justify-center relative group">
-                <div className=" bg-brand/20 rounded-3xl rotate-3 p-2 group-hover:rotate-6 transition-transform duration-300">
+                <div className=" bg-linear-to-l from-brand-dark/45 via-55%  to-brand/30 dark:bg-brand/40 rounded-3xl rotate-3 p-2 group-hover:rotate-6 transition-transform duration-300">
                 <img src={heroImg}
                  alt="mohamed" 
                  className="rounded-2xl shadow-lg max-w-[50vw] md:max-w-sm mx-auto h-auto " />
                 </div>
                 <div className='flex items-center gap-2 absolute -bottom-3 right-18 px-3 py-2 rounded-3xl bg-white '>
                   <span className='flex items-center w-3 h-3 rounded-full bg-green-500 animate-pulse'></span>
-                  <p>Open to work</p>
+                  <p className='dark:text-gray-800'>Open to work</p>
                 </div>
                     {/* تأثير التوهج الناعم */}
-                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
+                <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
             </div>
             <div className="md:col-span-7 space-y-8 text-start">
