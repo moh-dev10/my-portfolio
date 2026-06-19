@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import Home from './pages/Home'
 import AboutMe from './pages/AboutMe';
 import Projects from './pages/Projects';
+import Contact from './pages/Contact';
 
 const App = () => {
 
@@ -36,10 +37,12 @@ useEffect(() => {
             <Route path="/" element={<Home/>} />
 
             <Route path="/home" element={<Home/>} />
-            {/* <Route path="/about" element={<AboutMe/>} /> */}
+
             <Route path="/about" element={<AboutMe/>} />
 
             <Route path="/projects" element={<Projects/>} />
+
+            <Route path="/contact" element={<Contact/>} />
          </Routes>
          
         </main>

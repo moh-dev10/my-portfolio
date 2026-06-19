@@ -5,6 +5,7 @@ import { ArrowRight, Contact, Download  } from 'lucide-react';
 import Container from '../Container';
 import { delay, motion } from 'framer-motion';
 import heroImg from '/images/profileImg.webp';
+import { Link } from 'react-router-dom'
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -64,19 +65,21 @@ const Hero = () => {
           variants={containerVariants}>
             <div className='flex flex-col  items-center md:items-start md:flex-row md:flex-wrap gap-4'
             >
-              <motion.button className=' flex items-center justify-center gap-3 max-w-fit btn-primary transition-all duration-300 md:hover:scale-110 hover:shadow-lg cursor-pointer group'
+              <motion.button to="/projects" className=' flex items-center justify-center gap-3 max-w-fit btn-primary transition-all duration-300 md:hover:scale-110 hover:shadow-lg cursor-pointer group'
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}>
-                {t('projects')}
+                <Link to="/projects">{t('projects')}</Link>
                 <ArrowRight size={18} className='group-hover:translate-x-1 transition-transform'/>
               </motion.button>
-              <motion.button className=' flex items-center justify-center gap-3 max-w-fit btn-secondary transition-all duration-300 md:hover:scale-110 hover:shadow-lg cursor-pointer group'
+              <motion.button  className=' flex items-center justify-center gap-3 max-w-fit btn-secondary transition-all duration-300 md:hover:scale-110 hover:shadow-lg cursor-pointer group'
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               >
+                <Link to="/contact">
                 {t('hire')}
+                </Link>
                 <Contact size={18}/>
               </motion.button>
               <motion.button className='md:w-full flex items-center justify-center sm:justify-start gap-2 transition-all duration-300 cursor-pointer hover:underline'

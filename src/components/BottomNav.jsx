@@ -2,7 +2,7 @@ import React from 'react';
 import { Home, LayoutGrid, MessageSquare, User, Send } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import {useNavigate} from 'react-router-dom';
-
+import { Link } from 'react-router-dom'
 const BottomNav = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -44,10 +44,10 @@ const BottomNav = () => {
         <div className="w-px h-6 bg-white/20 mx-2" />
 
         {/* زر الـ Contact المميز (بلمسة بنفسجية) */}
-        <button className="flex items-center gap-2 bg-brand px-5 py-3 rounded-full text-white font-bold shadow-lg shadow-brand/30 hover:shadow-brand/50 hover:scale-105 active:scale-95 transition-all">
+        <Link to="/contact" className="flex items-center gap-2 bg-brand px-5 py-3 rounded-full text-white font-bold shadow-lg shadow-brand/30 hover:shadow-brand/50 hover:scale-105 active:scale-95 transition-all">
           <Send size={15} />
           <span className="hidden md:inline text-sm">Let's Talk</span>
-        </button>
+        </Link>
       </nav>
     </div>
   );

@@ -27,7 +27,11 @@ const AboutHero = () => {
                 <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
             </div>
-            <div className="md:col-span-7 space-y-8 text-start">
+            <motion.div
+             initial={{ opacity: 0, x: 50 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.6, delay: 0.2 }}
+             className="md:col-span-7 space-y-8 text-start">
                 
                     <h1 className="text-4xl font-extrabold mb-8">{t('aboutMe')}</h1>
                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">{t('aboutMeDescription')}</p>
@@ -50,7 +54,7 @@ const AboutHero = () => {
               {t('hireMe')}
               </motion.button>
             </div>
-            </div>
+            </motion.div>
         </div>
       </Container>
     </section>
