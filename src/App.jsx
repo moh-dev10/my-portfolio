@@ -5,14 +5,15 @@ import BottomNav from './components/BottomNav'
 import { ThemeProvider } from './context/ThemeContext'
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import Home from './pages/Home'
-import AboutMe from './pages/AboutMe';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';
+const Home = lazy(() => import('./pages/Home'));
+const AboutMe = lazy(() => import('./pages/AboutMe'));
+const Projects = lazy(() => import('./pages/Projects'));
+const Contact = lazy(() => import('./pages/Contact'));
 import BackgroundAnimation from './components/BackgroundAnimation';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageTransition } from './components/PageTransition';
+import { lazy ,Suspense } from 'react';
 
 const App = () => {
 
@@ -40,7 +41,8 @@ useEffect(() => {
 
          <Header />
 <AnimatePresence mode='wait'>
-  
+       <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
+
            <Routes location={location} key={location.pathname}>{/* هنا نحدد الصفحات */}
               <Route path="/" element={<Home/>} />
   
@@ -52,6 +54,8 @@ useEffect(() => {
   
               <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
            </Routes>
+           
+       </Suspense>
 </AnimatePresence>
          
         </main>
