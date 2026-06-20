@@ -1,0 +1,1 @@
+import{j as a}from"./vendor-Dt_yH2aK.js";var s=a(),x=({children:a,className:x=""})=>(0,s.jsx)("div",{className:`max-w-7xl  mx-auto px-4 md:px-12 lg:px-20 ${x}`,children:a});export{x as t};
