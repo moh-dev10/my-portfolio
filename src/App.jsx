@@ -9,11 +9,17 @@ import Home from './pages/Home'
 import AboutMe from './pages/AboutMe';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import BackgroundAnimation from './components/BackgroundAnimation';
+import { useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { PageTransition } from './components/PageTransition';
 
 const App = () => {
 
 // داخل الـ Component App
 const { i18n } = useTranslation();
+
+const location = useLocation();
 
 useEffect(() => {
   // إذا كانت اللغة عربية، نديرو 'rtl'، وإلا 'ltr'
@@ -25,32 +31,34 @@ useEffect(() => {
 
   return (
     <>
-    <HashRouter>
 
       <ThemeProvider>
 
         <main>
 
+          <BackgroundAnimation/>
+
          <Header />
-
-         <Routes>{/* هنا نحدد الصفحات */}
-            <Route path="/" element={<Home/>} />
-
-            <Route path="/home" element={<Home/>} />
-
-            <Route path="/about" element={<AboutMe/>} />
-
-            <Route path="/projects" element={<Projects/>} />
-
-            <Route path="/contact" element={<Contact/>} />
-         </Routes>
+<AnimatePresence mode='wait'>
+  
+           <Routes location={location} key={location.pathname}>{/* هنا نحدد الصفحات */}
+              <Route path="/" element={<Home/>} />
+  
+              <Route path="/home" element={<PageTransition><Home /></PageTransition>} />
+  
+              <Route path="/about" element={<PageTransition><AboutMe /></PageTransition>} />
+  
+              <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+  
+              <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+           </Routes>
+</AnimatePresence>
          
         </main>
 
         <BottomNav />
       </ThemeProvider>
 
-    </HashRouter>
     </>
   )
 }

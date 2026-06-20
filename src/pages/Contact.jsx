@@ -67,7 +67,7 @@ const Contact = () => {
                     viewport={{ once: true }} // تتحرك مرة واحدة فقط
                     variants={cardVariants}
                     whileHover={{ y: -10, transition: { duration: 0.2 } }} // حركة خفيفة عند الـ Hover
-                    className="flex flex-col items-center p-6 border rounded-2xl bg-white dark:bg-slate-900 shadow-lg"
+                    className="flex flex-col items-center p-6 border border-gray-200 dark:border-gray-500 rounded-2xl bg-white dark:bg-slate-900 shadow-lg"
                   >
                     <span className="text-2xl mb-2">{account.icon}</span>
                     <span className="text-xs text-gray-600 dark:text-gray-100">{account.title}</span>
@@ -77,13 +77,13 @@ const Contact = () => {
        <div className=' grid md:grid-cols-2'>
           
           <motion.form action="" 
-          className='flex flex-col p-8 border rounded-2xl gap-1 bg-card shadow-lg'
+          className='flex flex-col p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-500 rounded-2xl gap-1 bg-card shadow-lg'
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}>
               <header className='flex items-center gap-3 mb-4'>
                 <Send size={24} className='bg-brand/40 rounded-full p-1'/>
-                <h3 className='font-semibold'>Send A message</h3>
+                <h3 className='font-semibold'>Send a message</h3>
               </header>
               <label htmlFor="name">Name</label>
               <input id="name" type="text" placeholder='Mohamed Hadou'className='input' />
@@ -91,9 +91,13 @@ const Contact = () => {
               <input id="email" type="email" placeholder='mohdev@example.com' className='input' />
               <label htmlFor="message">Project Details</label>
               <textarea id="message" rows="4" placeholder='Tell me about your project...' className='input' />
-              <button type="submit" className="bg-brand text-white p-3 rounded-lg font-bold hover:opacity-90 transition-opacity cursor-pointer ">
+              <motion.button 
+              whileHover={{scale:1.05}}
+              whileTap={{scale:0.95}}
+              type="submit" 
+              className="bg-brand text-white p-3 rounded-lg font-bold hover:opacity-90 transition-opacity cursor-pointer ">
                 Send Message
-              </button> 
+              </motion.button> 
           </motion.form>
        </div>
       </Container>

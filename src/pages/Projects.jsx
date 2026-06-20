@@ -11,6 +11,7 @@ const Projects = () => {
          <motion.div 
              initial={{ opacity: 0, x: 50 }}
              whileInView={{ opacity: 1, x: 0 }}
+             viewport={{once: true}}
              transition={{ duration: 0.6, delay: 0.2 }}
              className='space-y-4 md:text-center'>
             <h1 className='text-4xl font-bold'>Slected Projects</h1>

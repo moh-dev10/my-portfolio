@@ -5,10 +5,15 @@ import { motion } from 'framer-motion';
 import heroImg from '/images/profileImg.webp';
 import SkillsGrid from './SkillsGrid';
 
+import { MySkills } from '../../data/myskills';
+import { div } from 'framer-motion/client';
+
+import { iconMap } from '../../data/myskills';
+
 const AboutHero = () => {
     const { t } = useTranslation();
   return (
-    <section id='about' className=' min-h-screen py-24 '>
+    <section id='about' className=' min-h-screen py-40 '>
       <Container>
         <div className="grid md:grid-cols-12  gap-16 items-center justify-content text-center ">
             <div className="md:col-span-5 flex items-center justify-center relative group">
@@ -30,19 +35,31 @@ const AboutHero = () => {
             <motion.div
              initial={{ opacity: 0, x: 50 }}
              whileInView={{ opacity: 1, x: 0 }}
+             viewport={{once:true}}
              transition={{ duration: 0.6, delay: 0.2 }}
              className="md:col-span-7 space-y-8 text-start">
                 
-                    <h1 className="text-4xl font-extrabold mb-8">{t('aboutMe')}</h1>
+                    <h1 className="text-4xl font-extrabold mb-8 ">{t('aboutMe')}</h1>
                     <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">{t('aboutMeDescription')}</p>
             
             {/* مهارات سريعة (Badges) */}
         <div className="flex flex-wrap justify-center md:justify-start gap-2">
-          {['React', 'WordPress', 'TypeScript', 'Tailwind'].map((skill) => (
-            <span key={skill} className="px-4 py-1.5 bg-brand/10 text-brand dark:bg-brand/20 rounded-full font-medium text-sm">
-              {skill}
-            </span>
-          ))}
+          {MySkills.skills.map((skill) => {
+               
+               const IconComponent = iconMap[skill.icon];
+            return (
+              <motion.div 
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              key={skill.id}
+              className={`flex items-center justify-center text-gray-600 dark:text-gray-300 bg-white/70 dark:bg-white/10
+               border border-black/10 dark:border-white/20 gap-3 px-5 py-1 rounded-full hover:${skill.color} shadow-sm
+                transition-all duration-300`}>
+                {IconComponent  && ( <IconComponent style={{color: skill.color}} size={18}/>)}
+                <span className='text-sm font-medium'>{skill.name}</span>
+              </motion.div>
+            )
+          })}
         </div>
 
             {/* أزرار تفاعلية (CTA) */}

@@ -10,6 +10,8 @@
   --color-brand: #8b5cf6;
   --color-brand-light: #a78bfa;
   --color-brand-dark: #7c3aed;
+
+  --shadow-brand-glow: 0 0 20px color-mix(in srgb, var(--color-brand), transparent 70%);
 }
 
 /* 2. منطق الألوان (Light & Dark Mode) */
@@ -26,6 +28,8 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
+
+
   /* كلاس الـ Dark Mode اللي راح نتحكموا فيه بـ React */
   .dark {
     --bg-main: #020617;        /* خلفية سوداء زرقاء (Deep Dark) */
@@ -33,6 +37,14 @@
     --text-main: #f1f5f9;      /* نص أبيض */
     --text-muted: #94a3b8;     /* نص رمادي فاتح */
     --border-color: #1e293b;   /* حدود غامقة */
+  }
+}
+
+@layer base {
+  input::placeholder, textarea::placeholder {
+    color: #94a3b8; /* اللون اللي حابو */
+    opacity: 0.7;   /* الشفافية */
+    font-size: 0.875rem; /* حجم الخط */
   }
 }
 
@@ -52,7 +64,7 @@
 
   /* الزر الأساسي */
   .btn-primary {
-    @apply px-6 py-3 flex items-center gap-3 rounded-xl font-bold text-white transition-all active:scale-95;
+    @apply px-8 py-4 flex items-center gap-3 rounded-full font-bold text-white transition-all active:scale-95;
     background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));
   }
 
@@ -63,12 +75,8 @@
 
   /* الزر الثانوي */
   .btn-secondary {
-    @apply px-6 py-3 flex items-center gap-3 rounded-xl font-bold
-      text-gray-800 bg-gray-200 transition-all duration-300 active:scale-95 cursor-pointer;
-  }
-
-  .btn-secondary:hover {
-    border: 1px solid var(--color-brand-light);
+    @apply px-8 py-4 flex items-center gap-3 rounded-full font-bold
+      text-gray-800 bg-gray-200 backdrop-blur-2xl transition-all duration-300  cursor-pointer;
   }
 
   /* البوتوم ناف (Glassmorphism) */
@@ -79,7 +87,8 @@
   }
 
   .input{
-    @apply w-full p-3 rounded-lg border dark:bg-gray-900 border-gray-300 dark:border-gray-600 bg-transparent focus:ring-2 focus:ring-brand mb-4;
+    @apply w-full p-3 rounded-lg border dark:bg-gray-900 border-gray-300 dark:border-gray-600 bg-transparent focus:outline-none  focus:ring-2 focus:ring-brand mb-4
+    placeholder-gray-400 focus:placeholder-transparent transition-all duration-300 ;
   }
   
 }

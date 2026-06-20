@@ -20,12 +20,11 @@ i18n
           // Hero Section
 
           hero_badge: "Available for projects",
-          hero_title: "Hi, I'm Mohamed, a Front-End & WordPress Developer.",
+          hero_title: "HADOU MOHAMED",
           hero_title_accent: "matter",
-          hero_desc: "Front-End Developer & WordPress Specialist based in Algeria. I build high-performance websites with a focus on modern UI/UX.",
+          hero_desc: "I build high-performance ,scalable web applications with a focus on modern UI/UX.",
           cv_button: "Download CV",
           projects: "View Projects",
-          hire: "Hire Me", // لا تنسى إضافة المفاتيح الناقصة
           hireMe: "Hire Me", // لا تنسى إضافة المفاتيح الناقصة
 
           // About Section - تأكد من إضافة المفاتيح الناقصة هنا أيضًا
@@ -47,10 +46,9 @@ i18n
           hero_badge: "متاح للمشاريع",
           hero_title: "مرحبًا، أنا محمد، مطور واجهات أمامية ومتخصص في ووردبريس.",
           hero_title_accent: "تصنع الأثر",
-          hero_desc: "مطور واجهات أمامية ومتخصص في ووردبريس مقيم في الجزائر. أبني مواقع عالية الأداء مع التركيز على تصميم حديث وسهل الاستخدام.",
+          hero_desc: "أبني مواقع عالية الأداء مع التركيز على تصميم حديث وسهل الاستخدام.",
           cv_button: "تحميل السيرة الذاتية",
           projects: "عرض المشاريع",
-          hire: "وظفني",
           hireMe: "وظفني", // لا تنسى إضافة المفاتيح الناقصة
 
 
@@ -70,16 +68,15 @@ i18n
           hero_badge: "Disponible pour des projets",
           hero_title: "Salut, je suis Mohamed, développeur Front-End & WordPress.",
           hero_title_accent: "comptent",
-          hero_desc: "Développeur Frontend & Expert WordPress basé en Algérie. Je crée des sites web à haute performance avec un focus sur l'UI/UX moderne.",
+          hero_desc: " Je crée des sites web à haute performance avec un focus sur l'UI/UX moderne.",
           cv_button: "Télécharger le CV",
           projects: "Voir les projets",
-          hire: "Embauchez-moi",
           hireMe: "Embauchez-moi", // لا تنسى إضافة المفاتيح الناقصة
 
           // About Section - تأكد من إضافة المفاتيح الناقصة هنا أيضًا
           aboutMe: "À propos de moi",
           aboutMeDescription: "Je suis Mohamed, développeur Front-End & Expert WordPress. J'ai une vaste expérience dans la création de sites web à haute performance avec un focus sur le design moderne et convivial. Je suis passionné par la transformation des idées en réalités numériques qui ont un impact positif.",
-          tech_stack:"mon stack technique"
+          tech_stack:"Mon stack technique"
           
         }
       }

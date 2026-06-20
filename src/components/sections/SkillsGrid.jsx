@@ -1,14 +1,12 @@
 import React from 'react'
 import Container from '../../components/Container'
-import { Code2, Database, Layout, Smartphone } from 'lucide-react';
+import {  Layout } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { FaWordpress ,FaTools } from 'react-icons/fa';
+import { skillsData } from '../../data/skillsData';
+import { iconMap } from '../../utils/utils';
 
-const skills = [
-    { title: "Front-End", icon: <Layout />, techs: ["React", "TypeScript", "Tailwind"] },
-    { title: "WordPress", icon: <Code2 />, techs: ["Custom Themes", "Elementor", "Plugins"] },
-    { title: "Tools", icon: <Smartphone />, techs: ["Git", "Vite", "Framer Motion"] },
-];
 
 
 // تعريف الـ Variants للحركة
@@ -29,30 +27,39 @@ const SkillsGrid = () => {
   return (
     <section id='skills' className='py-24'>
         <Container>
-            <h2 className="text-4xl font-bold mb-8 text-center">{t('tech_stack')}</h2>
+            <h2 className="text-4xl font-bold mb-8 text-center text-brand-gradient">{t('tech_stack')}</h2>
             <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }} 
-            className="grid md:grid-cols-3 gap-8">
-          {skills.map((skill, index) => (
-            <motion.div 
-             variants={cardVariants}
-             key={index}
-             className="p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700">
-              <div className="text-brand mb-4">{skill.icon}</div>
-              <h3 className="text-xl  font-bold mb-4">{skill.title}</h3>
-              <ul className="space-y-2">
-                {skill.techs.map((t) => (
-                  <li key={t} className="text-gray-600 dark:text-gray-400 flex items-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand mr-2"></span>
-                    {t}
-                  </li>
+            className="grid md:grid-cols-3 gap-4 p-4">
+          {skillsData.skills.map((skill) => {
+            const IconComponent = iconMap[skill.icon];
+
+            return (
+              <div key={skill.id}
+              className={`${skill.span} p-8 border bg-white/5 border-white/10 rounded-3xl backdrop-blur-md hover:border-brand hover:shadow-brand-glow transition-all group shadow-lg hover:-translate-y-2 duration-300`}>
+                <div className={`w-12 h-12 ${skill.color} flex items-center justify-center rounded-xl mb-6 shadow-lg text-white`}>
+                  <IconComponent size={24} />
+                </div>
+
+                <h3 className=' text-2xl font-bold mb-2'>{skill.title}</h3>
+                <p className='text-sm text-gray-500 dark:text-gray-400 mb-6'>{skill.description}</p>
+              <div className='flex flex-wrap gap-2'>
+
+                {skill.items.map((item) =>(
+                  <span key={item}
+                  className='px-3 py-1 bg-white/30 dark:bg-white/5 border border-white/5 dark:border-white/10 rounded-full text-xs text-gray-500 dark:text-gray-300 group-hover:bg-brand/20 transition-colors duration-300'>
+                    {item}
+                  </span>
                 ))}
-              </ul>
-            </motion.div>
-          ))}
+
+              </div>
+              
+              </div>
+            )
+          })}
         </motion.div>
         </Container>
     </section>
