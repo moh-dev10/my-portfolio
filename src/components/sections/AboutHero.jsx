@@ -22,6 +22,8 @@ const AboutHero = () => {
                  alt="mohamed" 
                  width="200"
                  height="200"
+                 fetchPriority='high'
+                 loading='eager'
                  className="rounded-2xl shadow-lg  md:max-w-sm mx-auto h-auto " />
                 </div>
                 <div className='flex items-center gap-2 absolute -bottom-3 right-18 px-3 py-2 rounded-3xl bg-white '>

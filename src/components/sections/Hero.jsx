@@ -111,6 +111,8 @@ const Hero = () => {
       width="400"
       height="400"
       className='w-full h-full object-cover'
+      fetchPriority='high'
+      loading='eager'
     />
   </motion.div>
 </motion.figure>
