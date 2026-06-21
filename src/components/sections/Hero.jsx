@@ -101,7 +101,7 @@ const Hero = () => {
     <div className="absolute inset-0 bg-gradient-to-tr from-brand via-blue-500 to-purple-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
   
     {/* حاوية الصورة الأساسية */}
-    <motion.div 
+    <m.div 
       whileHover={{ scale: 1.05, rotate: 2 }}
       whileTap={{ scale: 0.95, rotate: -2 }}
       className='relative w-full h-full rounded-full border-4 border-white/10 overflow-hidden'
@@ -115,7 +115,7 @@ const Hero = () => {
         fetchPriority='high'
         loading='eager'
       />
-    </motion.div>
+    </m.div>
   </m.figure>
             <div className='bg-white/30 dark:bg-slate-800/40 
                   backdrop-blur-md 
