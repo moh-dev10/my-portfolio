@@ -1,7 +1,7 @@
 import React from 'react'
 import Container from '../Container';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
+import { m,LazyMotion,domAnimation } from 'framer-motion';
 import heroImg from '/images/profileImg.webp';
 import SkillsGrid from './SkillsGrid';
 
@@ -34,46 +34,48 @@ const AboutHero = () => {
                 <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
                 <div className="absolute -top-6 -right-6 w-24 h-24 bg-gradient-to-t from-brand to-transparent rounded-full blur-2xl -z-10 "></div>
             </div>
-            <motion.div
-             initial={{ opacity: 0, x: 50 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{once:true}}
-             transition={{ duration: 0.6, delay: 0.2 }}
-             className="md:col-span-7 space-y-8 text-start">
-                
-                    <h1 className="text-4xl font-extrabold mb-8 ">{t('aboutMe')}</h1>
-                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">{t('aboutMeDescription')}</p>
-            
-            {/* مهارات سريعة (Badges) */}
-        <div className="flex flex-wrap justify-center md:justify-start gap-2">
-          {MySkills.skills.map((skill) => {
-               
-               const IconComponent = iconMap[skill.icon];
-            return (
-              <motion.div 
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              key={skill.id}
-              className={`flex items-center justify-center text-gray-600 dark:text-gray-300 bg-white/70 dark:bg-white/10
-               border border-black/10 dark:border-white/20 gap-3 px-5 py-1 rounded-full hover:${skill.color} shadow-sm
-                transition-all duration-300`}>
-                {IconComponent  && ( <IconComponent style={{color: skill.color}} size={18}/>)}
-                <span className='text-sm font-medium'>{skill.name}</span>
-              </motion.div>
-            )
-          })}
-        </div>
-
-            {/* أزرار تفاعلية (CTA) */}
-            <div className="flex gap-4">
-              <motion.button className="bg-brand text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg shadow-brand/20"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              >
-              {t('hireMe')}
-              </motion.button>
-            </div>
-            </motion.div>
+            <LazyMotion features={domAnimation}>
+              <m.div
+               initial={{ opacity: 0, x: 50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{once:true}}
+               transition={{ duration: 0.6, delay: 0.2 }}
+               className="md:col-span-7 space-y-8 text-start">
+                  
+                      <h1 className="text-4xl font-extrabold mb-8 ">{t('aboutMe')}</h1>
+                      <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">{t('aboutMeDescription')}</p>
+              
+              {/* مهارات سريعة (Badges) */}
+          <div className="flex flex-wrap justify-center md:justify-start gap-2">
+            {MySkills.skills.map((skill) => {
+                 
+                 const IconComponent = iconMap[skill.icon];
+              return (
+                <m.div 
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                key={skill.id}
+                className={`flex items-center justify-center text-gray-600 dark:text-gray-300 bg-white/70 dark:bg-white/10
+                 border border-black/10 dark:border-white/20 gap-3 px-5 py-1 rounded-full hover:${skill.color} shadow-sm
+                  transition-all duration-300`}>
+                  {IconComponent  && ( <IconComponent style={{color: skill.color}} size={18}/>)}
+                  <span className='text-sm font-medium'>{skill.name}</span>
+                </m.div>
+              )
+            })}
+          </div>
+  
+              {/* أزرار تفاعلية (CTA) */}
+              <div className="flex gap-4">
+                <m.button className="bg-brand text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg shadow-brand/20"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                >
+                {t('hireMe')}
+                </m.button>
+              </div>
+              </m.div>
+            </LazyMotion>
         </div>
       </Container>
     </section>
