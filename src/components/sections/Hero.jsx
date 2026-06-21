@@ -41,7 +41,7 @@ const Hero = () => {
           variants={containerVariants}
           >
             {/* badge */}
-            <motion.div className='flex  items-center  text-brand text-sm bg-brand/10 dark:bg-brand/40 w-max px-3 py-1 rounded-full 
+            <m.div className='flex  items-center  text-brand text-sm bg-brand/10 dark:bg-brand/40 w-max px-3 py-1 rounded-full 
             font-black animate-pulse'
             initial="hidden"
             animate="visible"
@@ -49,42 +49,42 @@ const Hero = () => {
             >
               <span className=' flex items-center w-2 h-2 bg-brand rounded-full me-2'></span>
               {t('hero_badge')}
-            </motion.div>
+            </m.div>
             {/* title */}
-            <motion.h1 className='text-4xl sm:text-6xl md:text-7xl  
+            <m.h1 className='text-4xl sm:text-6xl md:text-7xl  
             bg-clip-text text-transparent bg-gradient-to-r from-brand via-blue-500 to-purple-500 
              font-extrabold tracking-tighter leading-tight '
             variants={itemVariants}>
               {t('hero_title')}
-            </motion.h1>
+            </m.h1>
             {/* description */}
-            <motion.p className='text-sm sm:text-lg max-w-xl mb-8 '
+            <m.p className='text-sm sm:text-lg max-w-xl mb-8 '
             variants={itemVariants}>
               {t('hero_desc')}
-            </motion.p>
+            </m.p>
   
             {/* buttons */}
-            <motion.div className=' space-y-4'
+            <m.div className=' space-y-4'
             variants={itemVariants}>
               <div className='flex flex-col  items-center md:items-start md:flex-row md:flex-wrap gap-4'
               >
-                <motion.button to="/projects"
+                <m.button to="/projects"
                  className='w-full md:max-w-fit flex items-center justify-center gap-3  btn-primary transition-all duration-300 md:hover:scale-110 hover:shadow-lg cursor-pointer group'
                 whileHover={{scale: 1.05}}
                 whileTap={{scale:0.95}}>
                   <Link to="/projects">{t('projects')}</Link>
                   <ArrowRight size={18} className='group-hover:translate-x-2 transition-transform duration-300'/>
-                </motion.button>
-                <motion.button 
+                </m.button>
+                <m.button 
                 whileHover={{scale: 1.05}}
                 whileTap={{scale:0.95}}
                 className='group btn-secondary w-full md:max-w-fit  flex items-center justify-center sm:justify-start gap-2 transition-all duration-300 cursor-pointer'
               >
                   <Download size={18} className='inline mr-2 group-hover:translate-y-1 transition-transform duration-300' />
                   {t('cv_button')}
-                </motion.button>
+                </m.button>
               </div>
-            </motion.div>
+            </m.div>
           </m.div>
   
           {/* image side */}
