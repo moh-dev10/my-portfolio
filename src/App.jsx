@@ -9,7 +9,7 @@ const Home = lazy(() => import('./pages/Home'));
 const AboutMe = lazy(() => import('./pages/AboutMe'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
-import BackgroundAnimation from './components/BackgroundAnimation';
+// import BackgroundAnimation from './components/BackgroundAnimation';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PageTransition } from './components/PageTransition';
@@ -37,9 +37,10 @@ useEffect(() => {
 
         <main>
 
-          <BackgroundAnimation/>
+          {/* <BackgroundAnimation/> */}
 
          <Header />
+         
 <AnimatePresence mode='wait'>
        <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
 

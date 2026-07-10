@@ -27,7 +27,7 @@ const Projects = () => {
                          viewport={{ once: true }}
                          transition={{ duration: 0.5 }}
                         >
-                        <ProjectCard id={project.id} project={project} />
+                        <ProjectCard key={project.id} project={project} />
                        </m.div>
                ))}
            </div>

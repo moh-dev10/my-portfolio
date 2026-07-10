@@ -6,26 +6,11 @@ import Container from '../Container';
 import { delay,  scale ,LazyMotion, domAnimation, m} from 'framer-motion';
 import heroImg from '/images/profileImg.webp';
 import { Link } from 'react-router-dom'
-
+import { containerVariants, itemVariants } from '../hero.animations.js';
 const Hero = () => {
   const { t } = useTranslation();
 
-  // إعدادات الحركة
-  const containerVariants = {
-    hidden: { opacity: 0},
-    visible: { opacity: 1, 
-      transition: 
-      { staggerChildren: 0.4 } }
-  };
 
-  const itemVariants = {
-    hidden: { opacity: 0 , y: 20 },
-    visible: { opacity: 1 , y: 0,
-      transition :{
-         duration: 0.8,
-         ease: [0.22, 1, 0.36, 1]}
-    },
-  };
   
   return (
     <section id='hero' className=' min-h-screen '>
@@ -43,28 +28,25 @@ const Hero = () => {
             {/* badge */}
             <m.div className='flex  items-center  text-brand text-sm bg-brand/10 dark:bg-brand/40 w-max px-3 py-1 rounded-full 
             font-black animate-pulse'
-            initial="hidden"
-            animate="visible"
-            variants={itemVariants}
             >
               <span className=' flex items-center w-2 h-2 bg-brand rounded-full me-2'></span>
               {t('hero_badge')}
             </m.div>
             {/* title */}
-            <m.h1 className='text-4xl sm:text-6xl md:text-7xl  
+            <h1 className='text-4xl sm:text-6xl md:text-7xl  
             bg-clip-text text-transparent bg-gradient-to-r from-brand via-blue-500 to-purple-500 
              font-extrabold tracking-tighter leading-tight '
-            variants={itemVariants}>
+            >
               {t('hero_title')}
-            </m.h1>
+            </h1>
             {/* description */}
-            <m.p className='text-sm sm:text-lg max-w-xl mb-8 '
-            variants={itemVariants}>
+            <p className='text-sm sm:text-lg max-w-xl mb-8 '
+            >
               {t('hero_desc')}
-            </m.p>
+            </p>
   
             {/* buttons */}
-            <m.div className=' space-y-4'
+            <m.div className='space-y-4'
             variants={itemVariants}>
               <div className='flex flex-col  items-center md:items-start md:flex-row md:flex-wrap gap-4'
               >
@@ -122,8 +104,8 @@ const Hero = () => {
                   border border-white/20 dark:border-slate-400/50 
                   rounded-full p-2 shadow-xl  max-w-fit mx-auto px-2 py-1'>
   
-             <span className='text-sm font-bold md:text-sm font-bold 
-             bg-clip-text text-transparent bg-gradient-to-r from-brand via-blue-500 to-purple-500 dark:text-brand-dark uppercase'>
+             <span className='text-sm font-bold md:text-sm 
+             bg-clip-text text-transparent bg-linear-to-r from-brand via-blue-500 to-purple-500 dark:text-brand-dark uppercase'>
               Front-End & WordPress Developer
               </span>
           
