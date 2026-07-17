@@ -9,6 +9,7 @@ const Home = lazy(() => import('./pages/Home'));
 const AboutMe = lazy(() => import('./pages/AboutMe'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
+const Services = lazy(() => import('./pages/Services'));
 // import BackgroundAnimation from './components/BackgroundAnimation';
 import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -50,6 +51,8 @@ useEffect(() => {
               <Route path="/home" element={<PageTransition><Home /></PageTransition>} />
   
               <Route path="/about" element={<PageTransition><AboutMe /></PageTransition>} />
+
+              <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
   
               <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
   
