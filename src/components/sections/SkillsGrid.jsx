@@ -25,9 +25,9 @@ const SkillsGrid = () => {
 
     const { t } = useTranslation(); 
   return (
-    <section id='skills' className='py-24'>
+    <section id='skills'>
         <Container>
-            <h2 className="text-4xl font-bold mb-8 text-center text-brand-gradient">{t('tech_stack')}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center text-brand-gradient">{t('tech_stack')}</h2>
             <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -39,7 +39,7 @@ const SkillsGrid = () => {
 
             return (
               <div key={skill.id}
-              className={`${skill.span} p-8 border bg-white/5 border-white/10 rounded-3xl backdrop-blur-md hover:border-brand hover:shadow-brand-glow transition-all group shadow-lg hover:-translate-y-2 duration-300`}>
+              className={`${skill.span} p-8 border bg-white/5 border-neutral-200 dark:border-white/10 rounded-3xl backdrop-blur-md hover:border-brand hover:shadow-brand-glow transition-all group shadow-md hover:-translate-y-2 duration-300`}>
                 <div className={`w-12 h-12 ${skill.color} flex items-center justify-center rounded-xl mb-6 shadow-lg text-white`}>
                   <IconComponent size={24} />
                 </div>
@@ -50,7 +50,7 @@ const SkillsGrid = () => {
 
                 {skill.items.map((item) =>(
                   <span key={item}
-                  className='px-3 py-1 bg-white/30 dark:bg-white/5 border border-white/5 dark:border-white/10 rounded-full text-xs text-gray-500 dark:text-gray-300 group-hover:bg-brand/20 transition-colors duration-300'>
+                  className='px-3 py-1 bg-white/30 dark:bg-white/5 border border-neutral-200 shadow-brand-glow dark:border-white/10 rounded-full text-xs text-gray-500 dark:text-gray-300 group-hover:bg-brand/20 transition-colors duration-300'>
                     {item}
                   </span>
                 ))}

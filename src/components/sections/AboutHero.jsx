@@ -13,7 +13,7 @@ import { iconMap } from '../../data/myskills';
 const AboutHero = () => {
     const { t } = useTranslation();
   return (
-    <section id='about' className=' min-h-screen py-40 '>
+    <section id='about' className=' min-h-screen pt-40 mb-20 '>
       <Container>
         <div className="grid md:grid-cols-12  gap-16 items-center justify-content text-center ">
             <div className="md:col-span-5 flex items-center justify-center relative group">
@@ -40,10 +40,15 @@ const AboutHero = () => {
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{once:true}}
                transition={{ duration: 0.6, delay: 0.2 }}
-               className="md:col-span-7 space-y-8 text-start">
-                  
-                      <h1 className="text-4xl font-extrabold mb-8 ">{t('aboutMe')}</h1>
-                      <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">{t('aboutMeDescription')}</p>
+               className="md:col-span-7 space-y-8 text-center md:text-start">
+                      <div className='flex items-center max-w-lg'>
+                        
+                        <div className="h-px flex-1 bg-neutral-300 dark:bg-neutral-600"></div>
+                        <h3 className="text-xl font-extrabold mx-2">{t('aboutMe')}</h3>
+                        <div className="h-px flex-1 bg-neutral-300 dark:bg-neutral-600"></div>
+                      </div>
+                      <div className="text-lg bg-white dark:bg-slate-900 backdrop-blur-xl border  border-neutral-300 dark:border-neutral-600  shadow-md rounded-2xl p-6 text-start text-gray-600 dark:text-gray-300 leading-relaxed
+                       max-w-lg">{t('aboutMeDescription')}</div>
               
               {/* مهارات سريعة (Badges) */}
           <div className="flex flex-wrap justify-center md:justify-start gap-2">
@@ -67,7 +72,7 @@ const AboutHero = () => {
   
               {/* أزرار تفاعلية (CTA) */}
               <div className="flex gap-4">
-                <m.button className="bg-brand text-white px-8 py-4 rounded-2xl font-bold hover:scale-105 transition-transform shadow-lg shadow-brand/20"
+                <m.button className="bg-brand backdrop-blur-xl border-white/3 text-white px-8 py-4  text-xl font-black  rounded-2xl hover:scale-105 transition-transform shadow-lg shadow-brand/20"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 >
