@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { m,LazyMotion,domAnimation } from 'framer-motion';
 import heroImg from '/images/profileImg.webp';
 import SkillsGrid from './SkillsGrid';
+import { Rocket } from 'lucide-react';
 
 import { MySkills } from '../../data/myskills';
 import { div } from 'framer-motion/client';
@@ -41,14 +42,14 @@ const AboutHero = () => {
                viewport={{once:true}}
                transition={{ duration: 0.6, delay: 0.2 }}
                className="md:col-span-7 space-y-8 text-center md:text-start">
-                      <div className='flex items-center max-w-lg'>
+                      <div className='flex items-center '>
                         
                         <div className="h-px flex-1 bg-neutral-300 dark:bg-neutral-600"></div>
                         <h3 className="text-xl font-extrabold mx-2">{t('aboutMe')}</h3>
                         <div className="h-px flex-1 bg-neutral-300 dark:bg-neutral-600"></div>
                       </div>
                       <div className="text-lg bg-white dark:bg-slate-900 backdrop-blur-xl border  border-neutral-300 dark:border-neutral-600  shadow-md rounded-2xl p-6 text-start text-gray-600 dark:text-gray-300 leading-relaxed
-                       max-w-lg">{t('aboutMeDescription')}</div>
+                       ">{t('aboutMeDescription')}</div>
               
               {/* مهارات سريعة (Badges) */}
           <div className="flex flex-wrap justify-center md:justify-start gap-2">
@@ -61,7 +62,7 @@ const AboutHero = () => {
                 transition={{ type: "spring", stiffness: 300 }}
                 key={skill.id}
                 className={`flex items-center justify-center text-gray-600 dark:text-gray-300 bg-white/70 dark:bg-white/10
-                 border border-black/10 dark:border-white/20 gap-3 px-5 py-1 rounded-full hover:${skill.color} shadow-sm
+                 border border-neutral-300 dark:border-neutral-700 gap-3 px-5 py-1 rounded-full hover:${skill.color} shadow-sm
                   transition-all duration-300`}>
                   {IconComponent  && ( <IconComponent style={{color: skill.color}} size={18}/>)}
                   <span className='text-sm font-medium'>{skill.name}</span>
@@ -71,8 +72,9 @@ const AboutHero = () => {
           </div>
   
               {/* أزرار تفاعلية (CTA) */}
-              <div className="flex gap-4">
-                <m.button className="bg-brand backdrop-blur-xl border-white/3 text-white px-8 py-4  text-xl font-black  rounded-2xl hover:scale-105 transition-transform shadow-lg shadow-brand/20"
+              <div className="flex items-center gap-4 bg-brand max-w-fit px-6 py-3 rounded-2xl hover:scale-105 hover:shadow-brand-glow transition-transform duration-300 cursor-pointer group">
+                <Rocket size={18} className='text-white animate-bounce' />
+                <m.button className="  border-white/3 text-white  text-xl transition-transform"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 >

@@ -101,7 +101,7 @@ const Hero = () => {
   </m.figure>
             <div className='bg-white/30 dark:bg-slate-800/40 
                   backdrop-blur-md 
-                  border border-white/20 dark:border-slate-400/50 
+                  border border-neutral-200 dark:border-neutral-700 
                   rounded-full p-2 shadow-xl  max-w-fit mx-auto px-2 py-1'>
   
              <span className='text-sm font-bold md:text-sm 

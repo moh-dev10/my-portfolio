@@ -67,7 +67,7 @@ const Contact = () => {
                     viewport={{ once: true }} // تتحرك مرة واحدة فقط
                     variants={cardVariants}
                     whileHover={{ y: -10, transition: { duration: 0.2 } }} // حركة خفيفة عند الـ Hover
-                    className="flex flex-col items-center p-6 border border-gray-200 dark:border-gray-500 rounded-2xl bg-white dark:bg-slate-900 shadow-lg"
+                    className="flex flex-col items-center p-6 border border-neutral-300 dark:border-neutral-700 rounded-2xl bg-white dark:bg-slate-900 shadow-lg"
                   >
                     <span className="text-2xl mb-2">{account.icon}</span>
                     <span className="text-xs text-gray-600 dark:text-gray-100">{account.title}</span>
@@ -77,7 +77,7 @@ const Contact = () => {
        <div className=' grid md:grid-cols-2'>
           
           <motion.form action="" 
-          className='flex flex-col p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-gray-500 rounded-2xl gap-1 bg-card shadow-lg'
+          className='flex flex-col p-8 bg-white dark:bg-slate-900 border border-neutral-300 dark:border-neutral-700 rounded-2xl gap-1 bg-card shadow-lg'
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}>

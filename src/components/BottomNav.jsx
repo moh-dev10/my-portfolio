@@ -22,7 +22,8 @@ const BottomNav = () => {
   }
 
   return (
-    <div className=" md:hidden glass-nav ">
+    <div className=" md:hidden fixed bottom-4 left-1/2 -translate-x-1/2  rounded-full border border-neutral-300 dark:border-neutral-600 backdrop-blur-3xl 
+    z-50 px-1 py-1 mt-20">
       {/* Container الزجاجي */}
       <nav className="flex items-center justify-center gap-4 px-4 py rounded-full bg-white/40 dark:bg-slate-900/40 backdrop-blur-xl border border-white/20 dark:border-slate-800 shadow-2xl">
         

@@ -25,21 +25,21 @@ const SkillsGrid = () => {
 
     const { t } = useTranslation(); 
   return (
-    <section id='skills'>
+    <section id='skills' className='py-20'>
         <Container>
-            <h2 className="text-3xl md:text-5xl font-bold mb-8 text-center text-brand-gradient">{t('tech_stack')}</h2>
+            <h2 className="text-3xl md:text-5xl font-bold mb-14 text-center text-brand-gradient">{t('tech_stack')}</h2>
             <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }} 
-            className="grid md:grid-cols-3 gap-4 p-4">
+            className="grid md:grid-cols-3 gap-4">
           {skillsData.skills.map((skill) => {
             const IconComponent = iconMap[skill.icon];
 
             return (
               <div key={skill.id}
-              className={`${skill.span} p-8 border bg-white/5 border-neutral-200 dark:border-white/10 rounded-3xl backdrop-blur-md hover:border-brand hover:shadow-brand-glow transition-all group shadow-md hover:-translate-y-2 duration-300`}>
+              className={`${skill.span} p-8 border bg-white/5 border-neutral-300 dark:border-neutral-700 rounded-3xl backdrop-blur-md hover:border-brand hover:shadow-brand-glow transition-all group shadow-md hover:-translate-y-2 duration-300`}>
                 <div className={`w-12 h-12 ${skill.color} flex items-center justify-center rounded-xl mb-6 shadow-lg text-white`}>
                   <IconComponent size={24} />
                 </div>

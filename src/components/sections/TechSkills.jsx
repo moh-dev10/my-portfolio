@@ -29,8 +29,8 @@ const TechSkills = () => {
                 <motion.div
                 ref={containerRef}
                 className="py-4 flex whitespace-nowrap gap-4 md:gap-10"
-                animate = {{ x: ["0" , "-50%"]}}// Animate by 50% of the width
-                transition={{duration: 8, repeat: Infinity,ease: "linear" }}
+                animate = {{ x: ["0" , "-60%"]}}// Animate by 50% of the width
+                transition={{duration: 4, repeat: Infinity,ease: "linear" }}
                 >
                     {[...skills, ...skills].map((skill, index) => (
                         
