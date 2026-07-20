@@ -62,7 +62,7 @@ const Hero = () => {
                 <m.a
                   href="/cv.pdf"
                   download
-                  className="group btn-secondary w-full md:max-w-fit flex items-center ..."
+                  className="group btn-secondary w-full md:max-w-fit flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
