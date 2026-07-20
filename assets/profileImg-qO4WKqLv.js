@@ -1,1 +1,0 @@
-var e=""+new URL("../images/profileImg.webp",import.meta.url).href;export{e as t};
