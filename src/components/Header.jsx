@@ -9,7 +9,7 @@ const Header = () => {
   const { i18n , t } = useTranslation();
 
   const toggleLanguage = () => {
-    const langs = ['en', 'ar', 'fr'];
+    const langs = ['en', 'fr'];
     // i18n.language ممكن ترجع 'en-US'، لهذا أحسن نديرو startsWith أو نجيبو أول حرفين
     const currentLang = (i18n.language || 'en').split('-')[0]; 
     const currentIndex = langs.indexOf(currentLang);
@@ -30,7 +30,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 w-full p-6  bg-white/20 dark:bg-brand/20 backdrop-blur-2xl    flex justify-between items-center z-50">
       {/* Logo */}
       <div className="text-2xl font-black tracking-tighter text-brand">
-        Moh<span className="text-[--text-main]">Dev.10</span>
+        Moh<span className="text-[--text-main]">Dev10</span>
       </div>
 
       {/* Desktop Navigation - تظهر فقط من md وفوق */}

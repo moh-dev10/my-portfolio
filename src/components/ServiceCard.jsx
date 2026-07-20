@@ -1,23 +1,42 @@
 import React from 'react'
-import { SERVICES } from '../data/services';
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
-const ServiceCard = ({ title, description, features }) => {
+const ServiceCard = ({ service }) => {
+  const { t } = useTranslation()
+
   return (
-    <div className='max-w-5xl'>
-      {SERVICES.map((service) => (
-        <div key={service.id} className=' flex flex-col rounded-2xl p-4 border border-white/10 shadow-lg mb-4'>
-            <h2 className='text-xl font-bold'>{service.title}</h2>
-            <p className='text-sm text-gray-400'>{service.description}</p>
-            <ul className='list-disc list-inside mt-2'>
-                {service.features.map((feature, index) => (
-                    <li key={index} className='text-sm text-gray-300'>
-                        {feature}
-                    </li>
-                ))}
-            </ul>
-        </div>
-      ))}
-    </div>
+    <article className="flex flex-col h-full rounded-3xl p-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm">
+      <header className="flex items-start justify-between gap-3">
+        <h2 className="text-xl font-bold hover:text-brand transition-colors duration-300">
+          {t(service.titleKey)}
+        </h2>
+        <ArrowUpRight size={18} className="text-brand shrink-0" />
+      </header>
+
+      <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">
+        {t(service.descriptionKey)}
+      </p>
+
+      <ul className="list-disc list-inside mt-4 space-y-1 flex-grow">
+        {service.featureKeys.map((featureKey) => (
+          <li key={featureKey} className="text-sm text-gray-600 dark:text-gray-300">
+            {t(featureKey)}
+          </li>
+        ))}
+      </ul>
+
+      <footer className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+        <Link
+          to="/contact"
+          className="inline-flex items-center gap-2 text-sm font-bold text-brand hover:gap-3 transition-all"
+        >
+          {t(service.ctaKey)}
+          <ArrowUpRight size={16} />
+        </Link>
+      </footer>
+    </article>
   )
 }
 

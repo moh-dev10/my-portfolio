@@ -1,29 +1,41 @@
-
-
-// data/services.ts
 export const SERVICES = [
   {
     id: 1,
-    title: "High-Performance E-commerce",
-    description: "Tailored online stores built for speed, scalability, and high conversion rates.",
-    features: ["WooCommerce Integration", "Custom Payment Gateways", "Advanced Filtering", "SEO-Optimized"],
-    ctaText: "Start Your Shop",
-    slug: "e-commerce"
+    slug: 'e-commerce',
+    titleKey: 'service_ecommerce_title',
+    descriptionKey: 'service_ecommerce_desc',
+    ctaKey: 'service_ecommerce_cta',
+    featureKeys: [
+      'service_ecommerce_feature_1',
+      'service_ecommerce_feature_2',
+      'service_ecommerce_feature_3',
+      'service_ecommerce_feature_4',
+    ],
   },
   {
     id: 2,
-    title: "Headless WordPress Development",
-    description: "Modernize your content management by decoupling your backend from a high-performance frontend.",
-    features: ["Custom Theme Development", "REST/GraphQL API", "Lightning-Fast Load Times", "Secure Architecture"],
-    ctaText: "Modernize Your CMS",
-    slug: "headless-wordpress"
+    slug: 'headless-wordpress',
+    titleKey: 'service_headless_title',
+    descriptionKey: 'service_headless_desc',
+    ctaKey: 'service_headless_cta',
+    featureKeys: [
+      'service_headless_feature_1',
+      'service_headless_feature_2',
+      'service_headless_feature_3',
+      'service_headless_feature_4',
+    ],
   },
   {
     id: 3,
-    title: "Web Performance Optimization",
-    description: "Audit and improve your existing site’s Core Web Vitals to ensure top-tier user experience.",
-    features: ["LCP/FCP Optimization", "Image Compression", "Code Splitting", "Performance Analytics"],
-    ctaText: "Speed Up My Site",
-    slug: "optimization"
-  }
+    slug: 'optimization',
+    titleKey: 'service_optimization_title',
+    descriptionKey: 'service_optimization_desc',
+    ctaKey: 'service_optimization_cta',
+    featureKeys: [
+      'service_optimization_feature_1',
+      'service_optimization_feature_2',
+      'service_optimization_feature_3',
+      'service_optimization_feature_4',
+    ],
+  },
 ];

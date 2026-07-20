@@ -5,30 +5,30 @@ import BottomNav from './components/BottomNav'
 import { ThemeProvider } from './context/ThemeContext'
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const AboutMe = lazy(() => import('./pages/AboutMe'));
-const Projects = lazy(() => import('./pages/Projects'));
+import Projects from './pages/Projects';
 const Contact = lazy(() => import('./pages/Contact'));
 const Services = lazy(() => import('./pages/Services'));
 // import BackgroundAnimation from './components/BackgroundAnimation';
 import { useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import {  AnimatePresence } from 'framer-motion';
 import { PageTransition } from './components/PageTransition';
 import { lazy ,Suspense } from 'react';
 
 const App = () => {
 
 // داخل الـ Component App
-const { i18n } = useTranslation();
+// const { i18n } = useTranslation();
 
 const location = useLocation();
 
-useEffect(() => {
-  // إذا كانت اللغة عربية، نديرو 'rtl'، وإلا 'ltr'
-  const direction = i18n.language === 'ar' ? 'rtl' : 'ltr';
-  document.documentElement.dir = direction;
-  document.documentElement.lang = i18n.language;
-}, [i18n.language]);
+// useEffect(() => {
+//   // إذا كانت اللغة عربية، نديرو 'rtl'، وإلا 'ltr'
+//   const direction = i18n.language === 'ar' ? 'rtl' : 'ltr';
+//   document.documentElement.dir = direction;
+//   document.documentElement.lang = i18n.language;
+// }, [i18n.language]);
 
 
   return (

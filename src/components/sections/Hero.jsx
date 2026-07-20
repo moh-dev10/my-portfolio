@@ -7,6 +7,7 @@ import { delay,  scale ,LazyMotion, domAnimation, m} from 'framer-motion';
 import heroImg from '/images/profileImg.webp';
 import { Link } from 'react-router-dom'
 import { containerVariants, itemVariants } from '../hero.animations.js';
+const MotionLink = m.create(Link);
 const Hero = () => {
   const { t } = useTranslation();
 
@@ -50,21 +51,24 @@ const Hero = () => {
             variants={itemVariants}>
               <div className='flex flex-col  items-center md:items-start md:flex-row md:flex-wrap gap-4'
               >
-                <m.button to="/projects"
+                <MotionLink
+                 to="/projects"
                  className='w-full md:max-w-fit flex items-center justify-center gap-3  btn-primary transition-all duration-300 md:hover:scale-110 hover:shadow-lg cursor-pointer group'
                 whileHover={{scale: 1.05}}
                 whileTap={{scale:0.95}}>
-                  <Link to="/projects">{t('projects')}</Link>
+                  <Link to="/projects">{t('viewprojects')}</Link>
                   <ArrowRight size={18} className='group-hover:translate-x-2 transition-transform duration-300'/>
-                </m.button>
-                <m.button 
-                whileHover={{scale: 1.05}}
-                whileTap={{scale:0.95}}
-                className='group btn-secondary w-full md:max-w-fit  flex items-center justify-center sm:justify-start gap-2 transition-all duration-300 cursor-pointer'
-              >
-                  <Download size={18} className='inline mr-2 group-hover:translate-y-1 transition-transform duration-300' />
+                </MotionLink>
+                <m.a
+                  href="/cv.pdf"
+                  download
+                  className="group btn-secondary w-full md:max-w-fit flex items-center ..."
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Download size={18} />
                   {t('cv_button')}
-                </m.button>
+                </m.a>
               </div>
             </m.div>
           </m.div>
@@ -106,7 +110,7 @@ const Hero = () => {
   
              <span className='text-sm font-bold md:text-sm 
              bg-clip-text text-transparent bg-linear-to-r from-brand via-blue-500 to-purple-500 dark:text-brand-dark uppercase'>
-              Front-End & WordPress Developer
+              {t('hero_role')}
               </span>
           
             </div>
