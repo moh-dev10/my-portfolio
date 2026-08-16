@@ -6,7 +6,8 @@ export const projectsData = [
         desc:"A professional-grade e-commerce starter blueprint, engineered to deliver high-performance shopping experiences tailored for the Algerian market. This project serves as a robust foundation for building scalable online stores, featuring a custom-built shipping system for all 58 provinces and an optimized checkout workflow.",
         image:"images/wldelroudji.webp",
         skills:["Wordpress","Tailwind css","Alpine js","Aos"],
-        link:"",
+        link:"https://wldelroudjishoes.com",
+        
         date:"juin 2026"
 
     },

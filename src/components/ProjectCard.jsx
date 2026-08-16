@@ -2,6 +2,7 @@
 import React from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { projectsData } from '../data/projects'
+import { Link } from 'react-router-dom'
 
 
 
@@ -34,12 +35,14 @@ const ProjectCard = ({ project }) => {
 
       
         <div className=' flex flex-col gap-4 p-6 grow '>
-          <header className='flex items-center justify-between'>
+          <header className='flex items-center justify-beftween'>
              <h3 className='font-bold  hover:text-brand transition-colors duration-300'>
                 {project.title}
                 </h3>
-             <ArrowUpRight size={18} className='text-brand cursor-pointer hover:rotate-45 transition-transform duration-300'/>
-          </header>
+<Link to={project.link}>
+                <ArrowUpRight size={18} className='text-brand cursor-pointer hover:rotate-45 transition-transform duration-300'/>
+   
+</Link>          </header>
              <p className='text-muted dark:text-gray-300 text-sm tracking-normal line-clamp-2'>
                 {project.desc}
                 </p>
