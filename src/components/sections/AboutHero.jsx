@@ -7,7 +7,6 @@ import SkillsGrid from './SkillsGrid';
 import { Rocket } from 'lucide-react';
 
 import { MySkills } from '../../data/myskills';
-import { div } from 'framer-motion/client';
 
 import { iconMap } from '../../data/myskills';
 

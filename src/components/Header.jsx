@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../context/useTheme';
 import { Sun, Moon, Languages } from 'lucide-react';
 import { Link } from 'react-router-dom';
 

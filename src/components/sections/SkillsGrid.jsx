@@ -15,10 +15,7 @@ const containerVariants = {
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
 };
 
-const cardVariants = {
-  hidden: { y: 30, opacity: 0 },
-  visible: { y: 0, opacity: 1 }
-};
+
 
 
 const SkillsGrid = () => {
@@ -55,8 +52,7 @@ const SkillsGrid = () => {
                   </span>
                 ))}
 
-              </div>
-              
+                </div>
               </div>
             )
           })}

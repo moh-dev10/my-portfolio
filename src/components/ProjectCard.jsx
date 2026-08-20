@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 
 const ProjectCard = ({ project }) => {
   return (
+   <Link to={project.link}>
     <article className='overflow-hidden rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm h-full flex flex-col'>
         <figure className='group relative overflow-hidden'>
             <img
@@ -34,15 +35,14 @@ const ProjectCard = ({ project }) => {
         </figure>
 
       
-        <div className=' flex flex-col gap-4 p-6 grow '>
+        <div className='flex flex-col gap-4 p-6 grow '>
           <header className='flex items-center justify-beftween'>
              <h3 className='font-bold  hover:text-brand transition-colors duration-300'>
                 {project.title}
-                </h3>
-<Link to={project.link}>
-                <ArrowUpRight size={18} className='text-brand cursor-pointer hover:rotate-45 transition-transform duration-300'/>
-   
-</Link>          </header>
+             </h3>
+
+             <ArrowUpRight size={18} className='text-brand cursor-pointer hover:rotate-45 transition-transform duration-300'/>
+        </header>
              <p className='text-muted dark:text-gray-300 text-sm tracking-normal line-clamp-2'>
                 {project.desc}
                 </p>
@@ -58,6 +58,7 @@ const ProjectCard = ({ project }) => {
         </div>
       
     </article>
+   </Link>
   )
 }
 
