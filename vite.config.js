@@ -10,25 +10,13 @@ export default defineConfig({
   ],
   base: './',// هذا يجعل كل الروابط نسبية، فتعمل في أي مكان
   build: {
-    // ضغط الملفات وتقليل حجم الـ Bundle
-    minify: 'terser', 
-    rollupOptions: {
-      output: {
-        // تقسيم المكتبات الكبيرة (مثل react-router, framer-motion) إلى ملفات منفصلة
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
-        }
-      }
+  minify: 'terser',
+  terserOptions: {
+    compress: {
+      drop_console: true,
+      drop_debugger: true,
     },
-    // إزالة التعليقات والـ logs من الكود النهائي
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-  }, 
+  },
+} 
 })
 
