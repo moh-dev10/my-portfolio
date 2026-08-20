@@ -7,7 +7,7 @@ import App from './App.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HashRouter> {/* 2. غلف الـ App بالـ BrowserRouter */}
+    <HashRouter> 
       <App />
     </HashRouter>
   </StrictMode>,

@@ -1,74 +1,88 @@
-import React from 'react'
-import { HashRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header'
-import BottomNav from './components/BottomNav'
-import { ThemeProvider } from './context/ThemeContext'
-import { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import Home from './pages/Home';
-const AboutMe = lazy(() => import('./pages/AboutMe'));
-import Projects from './pages/Projects';
-const Contact = lazy(() => import('./pages/Contact'));
-const Services = lazy(() => import('./pages/Services'));
-// import BackgroundAnimation from './components/BackgroundAnimation';
-import { useLocation } from 'react-router-dom';
-import {  AnimatePresence } from 'framer-motion';
+import { lazy, Suspense } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
+import Header from './components/Header';
+import BottomNav from './components/BottomNav';
+import { ThemeProvider } from './context/ThemeContext';
 import { PageTransition } from './components/PageTransition';
-import { lazy ,Suspense } from 'react';
+
+import Home from './pages/Home';
+import Projects from './pages/Projects'
+
+const AboutMe = lazy(() => import('./pages/AboutMe'));
+const Services = lazy(() => import('./pages/Services'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 const App = () => {
-
-// داخل الـ Component App
-// const { i18n } = useTranslation();
-
-const location = useLocation();
-
-// useEffect(() => {
-//   // إذا كانت اللغة عربية، نديرو 'rtl'، وإلا 'ltr'
-//   const direction = i18n.language === 'ar' ? 'rtl' : 'ltr';
-//   document.documentElement.dir = direction;
-//   document.documentElement.lang = i18n.language;
-// }, [i18n.language]);
-
+  const location = useLocation();
 
   return (
-    <>
+    <ThemeProvider>
+      <main>
+        <Header />
 
-      <ThemeProvider>
+        <AnimatePresence mode="wait">
+          <Suspense
+            fallback={
+              <div className="loading-spinner">
+                Loading...
+              </div>
+            }
+          >
+            <Routes location={location} key={location.pathname}>
+              <Route
+                path="/"
+                element={
+                  <PageTransition>
+                    <Home />
+                  </PageTransition>
+                }
+              />
 
-        <main>
+              <Route
+                path="/about"
+                element={
+                  <PageTransition>
+                    <AboutMe />
+                  </PageTransition>
+                }
+              />
 
-          {/* <BackgroundAnimation/> */}
+              <Route
+                path="/services"
+                element={
+                  <PageTransition>
+                    <Services />
+                  </PageTransition>
+                }
+              />
 
-         <Header />
-         
-<AnimatePresence mode='wait'>
-       <Suspense fallback={<div className="loading-spinner">Loading...</div>}>
+              <Route
+                path="/projects"
+                element={
+                  <PageTransition>
+                    <Projects />
+                  </PageTransition>
+                }
+              />
 
-           <Routes location={location} key={location.pathname}>{/* هنا نحدد الصفحات */}
-              <Route path="/" element={<Home/>} />
-  
-              <Route path="/home" element={<PageTransition><Home /></PageTransition>} />
-  
-              <Route path="/about" element={<PageTransition><AboutMe /></PageTransition>} />
+              <Route
+                path="/contact"
+                element={
+                  <PageTransition>
+                    <Contact />
+                  </PageTransition>
+                }
+              />
+            </Routes>
+          </Suspense>
+        </AnimatePresence>
+      </main>
 
-              <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
-  
-              <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
-  
-              <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-           </Routes>
-           
-       </Suspense>
-</AnimatePresence>
-         
-        </main>
+      <BottomNav />
+    </ThemeProvider>
+  );
+};
 
-        <BottomNav />
-      </ThemeProvider>
-
-    </>
-  )
-}
-
-export default App
+export default App;
