@@ -8,15 +8,22 @@ const fr = {
     contact: 'Contact',
 
     // Hero Section
-    hero_badge: 'Disponible pour des projets',
-    hero_title: 'HADOU MOHAMED',
-    hero_title_accent: 'comptent',
+    hero_badge: 'Disponible pour des projets freelance',
+    
+    hero_title_line_1: 'JE CRÉE',
+    hero_title_line_2: 'DES EXPÉRIENCES WEB',
+    hero_title_line_3: 'QUI COMPTENT',    
+
     hero_desc:
-      "Je crée des applications web performantes et évolutives avec un focus sur l'UI/UX moderne.",
-    hero_role: 'Développeur Front-End & WordPress',
+      'Je crée des sites web et des expériences e-commerce modernes, rapides et évolutives pour les entreprises qui souhaitent développer leur présence en ligne.',
+    
+    hero_role: 'Développeur Web · React · WordPress · E-commerce',
+    
     cv_button: 'Télécharger le CV',
-    viewprojects: 'Voir les projets',
-    hireMe: 'Embauchez-moi',
+
+    viewprojects: 'Voir mes projets',
+    
+    hireMe: 'Démarrer un projet',
 
     // About Section
     aboutMe: 'À propos de moi',

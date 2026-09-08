@@ -17,7 +17,6 @@ const containerVariants = {
 
 
 
-
 const SkillsGrid = () => {
 
     const { t } = useTranslation(); 

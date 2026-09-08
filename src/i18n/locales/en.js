@@ -8,15 +8,22 @@ const en = {
     contact: 'Contact',
 
     // Hero Section
-    hero_badge: 'Available for projects',
-    hero_title: 'HADOU MOHAMED',
-    hero_title_accent: 'matter',
+    hero_badge: 'Available for freelance projects',
+    
+    hero_title_line_1: 'I BUILD',
+    hero_title_line_2: 'WEB EXPERIENCES',
+    hero_title_line_3: 'THAT MATTER',    
+    
     hero_desc:
-      'I build high-performance, scalable web applications with a focus on modern UI/UX.',
-    hero_role: 'Front-End & WordPress Developer',
+      'I build fast, modern, and scalable websites and eCommerce experiences for businesses ready to grow online.',
+    
+    hero_role: 'Web Developer · React · WordPress · eCommerce',
+    
     cv_button: 'Download CV',
+    
     viewprojects: 'View Projects',
-    hireMe: 'Hire Me',
+    
+    hireMe: 'Let’s Work Together',
 
     // About Section
     aboutMe: 'About Me',

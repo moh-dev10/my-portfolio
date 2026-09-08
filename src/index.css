@@ -1,94 +1,434 @@
 @import "tailwindcss";
+
 @variant dark (&:where(.dark, .dark *));
 
+/* =========================================================
+   DESIGN SYSTEM — TOKENS
+   ========================================================= */
+
 @theme {
-  /* الخطوط اللي تفاهمنا عليها */
+  /* -------------------------------------------------------
+     Typography
+     ------------------------------------------------------- */
+
   --font-jakarta: "Plus Jakarta Sans", sans-serif;
   --font-cairo: "Cairo", sans-serif;
 
-  /* الألوان الأساسية (Purple Brand) */
-  --color-brand: #8b5cf6;
-  --color-brand-light: #a78bfa;
-  --color-brand-dark: #7c3aed;
+  /* -------------------------------------------------------
+     Brand
+     ------------------------------------------------------- */
 
-  --shadow-brand-glow: 0 0 20px color-mix(in srgb, var(--color-brand), transparent 70%);
+  --color-brand:  #14B8A6;
+
+  --color-brand-light: #2DD4BF;
+  --color-brand-dark: #0F766E;
+  --color-brand-hover: #0D9488;
+
+
+  --gradient-brand: linear-gradient(
+    135deg,
+    var(--color-brand),
+    var(--color-brand-hover)
+  )
+  /* -------------------------------------------------------
+     Spacing
+     ------------------------------------------------------- */
+
+  --spacing-section-sm: 4rem;
+  --spacing-section-md: 6rem;
+  --spacing-section-lg: 8rem;
+
+  --spacing-content-sm: 1rem;
+  --spacing-content-md: 1.5rem;
+  --spacing-content-lg: 2rem;
+
+  /* -------------------------------------------------------
+     Radius
+     ------------------------------------------------------- */
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-pill: 9999px;
+
+  /* -------------------------------------------------------
+     Shadows
+     ------------------------------------------------------- */
+
+  --shadow-soft:
+    0 4px 20px rgb(15 23 42 / 6%);
+
+  --shadow-card:
+    0 10px 30px rgb(15 23 42 / 8%);
+
+  --shadow-card-hover:
+    0 18px 45px rgb(15 23 42 / 12%);
+
+  --shadow-brand:
+    0 10px 30px color-mix(
+      in srgb,
+      var(--color-brand),
+      transparent 75%
+    );
+
+  --shadow-brand-glow:
+    0 0 24px color-mix(
+      in srgb,
+      var(--color-brand),
+      transparent 70%
+    );
+
+  /* -------------------------------------------------------
+     Motion
+     ------------------------------------------------------- */
+
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* -------------------------------------------------------
+     Z-index
+     ------------------------------------------------------- */
+
+  --z-base: 0;
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-overlay: 30;
+  --z-modal: 40;
+  --z-toast: 50;
 }
 
-/* 2. منطق الألوان (Light & Dark Mode) */
+/* =========================================================
+   THEME TOKENS
+   ========================================================= */
+
+:root {
+  /* Surfaces */
+
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-elevated: #ffffff;
+  --bg-subtle: #f1f5f9;
+
+  /* Content */
+
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-subtle: #94a3b8;
+  --text-on-brand: #ffffff;
+
+  /* Borders */
+
+  --border-color: #e2e8f0;
+  --border-hover: var(--color-brand-soft);
+
+  /* Interaction */
+
+  --focus-ring: var(--color-brand);
+
+  /* Selection */
+
+  --selection-bg: var(--color-brand);
+  --selection-text: #ffffff;
+
+  /* Overlay */
+
+  --overlay-bg: rgb(2 6 23 / 50%);
+
+  /* Header bg */
+
+  --header-bg: color-mix(
+  in srgb,
+  var(--bg-main),
+  transparent 20%
+);
+
+  --header-border: var(--border-color);
+  --header-blur: 20px;
+}
+
+.dark {
+  --bg-main: #020617;
+  --bg-card: #0f172a;
+  --bg-elevated: #1e293b;
+  --bg-subtle: #111827;
+
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-subtle: #64748b;
+  --text-on-brand: #ffffff;
+
+  --border-color: #1e293b;
+  --border-hover: var(--color-brand-soft);
+
+  --overlay-bg: rgb(0 0 0 / 65%);
+
+  --header-bg: color-mix(
+    in srgb,
+    var(--bg-main),
+    transparent 15%
+  );
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
 @layer base {
-  :root {
-    --bg-main: #f8fafc;        /* خلفية فاتحة مريحة */
-    --bg-card: #ffffff;        /* كروت بيضاء */
-    --text-main: #1e293b;      /* نص رمادي غامق */
-    --text-muted: #64748b;     /* نص باهت للوصف */
-    --border-color: #e2e8f0;   /* حدود خفيفة */
-    
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+
     background-color: var(--bg-main);
     color: var(--text-main);
-    transition: background-color 0.3s ease, color 0.3s ease;
+
+    font-family: var(--font-jakarta);
+
+    transition:
+      background-color var(--duration-normal) var(--ease-standard),
+      color var(--duration-normal) var(--ease-standard);
   }
 
-
-
-  /* كلاس الـ Dark Mode اللي راح نتحكموا فيه بـ React */
-  .dark {
-    --bg-main: #020617;        /* خلفية سوداء زرقاء (Deep Dark) */
-    --bg-card: #0f172a;        /* كروت رمادية غامقة */
-    --text-main: #f1f5f9;      /* نص أبيض */
-    --text-muted: #94a3b8;     /* نص رمادي فاتح */
-    --border-color: #1e293b;   /* حدود غامقة */
+  [dir="rtl"] {
+    font-family: var(--font-cairo);
   }
-}
 
-@layer base {
-  input::placeholder, textarea::placeholder {
-    color: #94a3b8; /* اللون اللي حابو */
-    opacity: 0.7;   /* الشفافية */
-    font-size: 0.875rem; /* حجم الخط */
-  }
-}
-
-/* 3. الـ Global Styles والـ Bento Grid */
-@layer components {
-  /* كلاس الكروت اللي شفناها في الصور */
-  .bento-card {
-    @apply rounded-[2.5rem] p-6 border transition-all duration-300;
-    background-color: var(--bg-card);
+  *,
+  *::before,
+  *::after {
     border-color: var(--border-color);
   }
 
-  .bento-card:hover {
-    @apply shadow-xl scale-[1.01];
-    border-color: var(--color-brand-light);
+  ::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-text);
   }
 
-  /* الزر الأساسي */
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.75;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+}
+
+/* =========================================================
+   LAYOUT PRIMITIVES
+   ========================================================= */
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .section-sm {
+    @apply py-12 md:py-16;
+  }
+
+  .section-lg {
+    @apply py-20 md:py-28 lg:py-36;
+  }
+
+  .section-header {
+    @apply mx-auto mb-12 max-w-3xl text-center md:mb-16;
+  }
+}
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+@layer components {
+  .bento-card {
+    @apply border p-6;
+
+    border-radius: var(--radius-2xl);
+    background-color: var(--bg-card);
+    border-color: var(--border-color);
+
+    transition:
+      border-color var(--duration-normal) var(--ease-standard),
+      box-shadow var(--duration-normal) var(--ease-standard),
+      transform var(--duration-normal) var(--ease-standard);
+  }
+
+  .bento-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+@layer components {
   .btn-primary {
-    @apply px-8 py-4 flex items-center gap-3 rounded-full font-bold text-white transition-all active:scale-95;
-    background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));
+    @apply inline-flex items-center justify-center gap-3
+      px-8 py-4 font-bold text-white cursor-pointer;
+
+    border-radius: var(--radius-pill);
+    
+  
+
+    transition:
+      transform var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-normal) var(--ease-standard);
   }
 
   .btn-primary:hover {
-    background: linear-gradient(135deg, var(--color-brand-light), var(--color-brand-dark));
-    box-shadow: 0 4px 15px var(--color-brand-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-brand);
   }
 
-  /* الزر الثانوي */
+  .btn-primary:active {
+    transform: translateY(0) scale(0.97);
+  }
+
   .btn-secondary {
-    @apply px-8 py-4 flex items-center gap-3 rounded-full font-bold
-      text-gray-800 bg-gray-200 backdrop-blur-2xl transition-all duration-300  cursor-pointer;
+    @apply inline-flex items-center justify-center gap-3
+      px-8 py-4 font-bold
+      cursor-pointer;
+
+    border-radius: var(--radius-pill);
+
+    color: var(--text-main);
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+
+    transition:
+      background-color var(--duration-normal) var(--ease-standard),
+      border-color var(--duration-normal) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard);
   }
 
-
-  
-
-  .input{
-    @apply w-full p-3 rounded-lg border dark:bg-gray-900 border-gray-300 dark:border-gray-600 bg-slate-100 focus:outline-none  focus:ring-2 focus:ring-brand mb-4
-    placeholder-gray-600 dark:placeholder-gray-400  focus:placeholder-transparent transition-all duration-300 ;
+  .btn-secondary:hover {
+    background-color: var(--bg-card);
+    border-color: var(--border-hover);
   }
-  
+
+  .btn-secondary:active {
+    transform: scale(0.97);
+  }
 }
 
-/* تطبيق الخطوط حسب اتجاه اللغة */
-:root { font-family: var(--font-jakarta); }
-[dir="rtl"] { font-family: var(--font-cairo); }
+/* =========================================================
+   FORM CONTROLS
+   ========================================================= */
+
+@layer components {
+  .input {
+    @apply w-full p-3;
+
+    border-radius: var(--radius-md);
+
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+
+    transition:
+      border-color var(--duration-normal) var(--ease-standard),
+      box-shadow var(--duration-normal) var(--ease-standard),
+      background-color var(--duration-normal) var(--ease-standard);
+  }
+
+  .input:focus {
+    outline: none;
+    border-color: var(--color-brand);
+
+    box-shadow:
+      0 0 0 3px color-mix(
+        in srgb,
+        var(--color-brand),
+        transparent 80%
+      );
+  }
+
+  .input:focus::placeholder {
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   UTILITY PRIMITIVES
+   ========================================================= */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .transition-theme {
+    transition:
+      background-color var(--duration-normal) var(--ease-standard),
+      color var(--duration-normal) var(--ease-standard),
+      border-color var(--duration-normal) var(--ease-standard);
+  }
+
+  .surface {
+    background-color: var(--bg-card);
+    color: var(--text-main);
+  }
+
+  .surface-subtle {
+    background-color: var(--bg-subtle);
+    color: var(--text-main);
+  }
+
+  .text-muted {
+    color: var(--text-muted);
+  }
+
+  .text-subtle {
+    color: var(--text-subtle);
+  }
+
+  .border-default {
+    border-color: var(--border-color);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
