@@ -12,7 +12,7 @@ export const projectsData = [
 
     },
     {
-        id:2,
+        id:3,
         title:"Abou baraa Shoes",
         desc:"AbouBaraaShoes is a refined e-commerce platform designed to offer a seamless shopping experience, blending style with comfort. The storefront features a clean, modern interface categorized into athletic, classic, and promotional sections, ensuring effortless product discovery and navigation.",
         image:"images/Aboubaraa.webp",
@@ -21,6 +21,15 @@ export const projectsData = [
         date:"march 2026"
 
     },
+    {
+    id: 2,
+    title: "Lumen Store",
+    desc: "A high-performance fashion e-commerce web application featuring a sleek minimalist UI, localized shopping features for Algeria (58 wilayas delivery, cash on delivery), intuitive navigation, and custom WordPress theme integration.",
+    image: "images/Lumenstore.webp",
+    link: "http://lumen-store.xo.je",
+    skills: ["WordPress", "WooCommerce", "Tailwind CSS", "ACF", "PHP"],
+    date: "August 2026"
+}
    
 ]
     

@@ -23,6 +23,8 @@
   --color-brand-light: #2DD4BF;
   --color-brand-dark: #0F766E;
   --color-brand-hover: #0D9488;
+  --color-brand: #14B8A6;
+  --color-brand-soft: #5eead4; /* Ajoute cette ligne si tu veux une version douce */
 
 
   --gradient-brand: linear-gradient(
@@ -282,6 +284,15 @@
     box-shadow: var(--shadow-card-hover);
     transform: translateY(-2px);
   }
+
+  .bg-brand-gradient {
+    display: block;
+    background: linear-gradient(to right, var(--color-brand), #3b82f6, var(--color-brand)); /* Ajuste selon tes variables */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
 }
 
 /* =========================================================
@@ -375,6 +386,7 @@
   }
 }
 
+
 /* =========================================================
    UTILITY PRIMITIVES
    ========================================================= */
@@ -411,6 +423,20 @@
 
   .border-default {
     border-color: var(--border-color);
+  }
+
+  /* Ton dégradé propre ici */
+  .text-brand-gradient {
+    background: linear-gradient(to right, var(--color-brand), #3b82f6, var(--color-brand));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* 2. Uniquement pour le background (fonds, bannières, etc.) */
+  .bg-brand-gradient-box {
+    background: linear-gradient(to right, var(--color-brand), #3b82f6, var(--color-brand));
   }
 }
 

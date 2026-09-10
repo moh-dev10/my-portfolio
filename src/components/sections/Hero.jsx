@@ -91,7 +91,7 @@ const Hero = () => {
                   <MotionLink
                     to="/projects"
                     className="
-                      btn-primary bg-brand
+                      btn-primary bg-brand-gradient-box 
                       flex w-full items-center justify-center gap-3
                       md:w-auto
                     "
