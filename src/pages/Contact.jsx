@@ -7,9 +7,9 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 const accounts = [
-  { title: 'Github', icon: <FaGithub /> },
-  { title: 'LinkedIn', icon: <FaLinkedin /> },
-  { title: 'Instagram', icon: <FaInstagram /> },
+  { title: 'Github', icon: <FaGithub /> , link: 'https://github.com/moh-dev10' },
+  { title: 'LinkedIn', icon: <FaLinkedin /> , link: 'https://linkedin.com/in/moh-dev10' },
+  { title: 'Instagram', icon: <FaInstagram /> , link: 'https://instagram.com/mohdev10' },
 ];
 
 const cardVariants = {
@@ -55,6 +55,12 @@ const Contact = () => {
 
         <div className='grid grid-cols-3 max-w-md mx-auto gap-6 my-10'>
           {accounts.map((account, index) => (
+            <a
+                href={account.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-gray-600 dark:text-gray-100 hover:text-brand transition-colors"
+              >
             <motion.div
               key={index}
               custom={index}
@@ -66,8 +72,10 @@ const Contact = () => {
               className="flex flex-col items-center p-6 border border-neutral-300 dark:border-neutral-700 rounded-2xl bg-white dark:bg-slate-900 shadow-lg"
             >
               <span className="text-2xl mb-2">{account.icon}</span>
-              <span className="text-xs text-gray-600 dark:text-gray-100">{account.title}</span>
+              
+                {account.title}
             </motion.div>
+              </a>
           ))}
         </div>
 
