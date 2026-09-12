@@ -26,7 +26,7 @@ export const projectsData = [
     title: "Lumen Store",
     desc: "A high-performance fashion e-commerce web application featuring a sleek minimalist UI, localized shopping features for Algeria (58 wilayas delivery, cash on delivery), intuitive navigation, and custom WordPress theme integration.",
     image: "images/Lumenstore.webp",
-    link: "http://lumen-store.xo.je",
+    link: "http://lumen-store.42web.io",
     skills: ["WordPress", "WooCommerce", "Tailwind CSS", "ACF", "PHP"],
     date: "August 2026"
 }
