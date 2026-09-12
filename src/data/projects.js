@@ -11,16 +11,7 @@ export const projectsData = [
         date:"juin 2026"
 
     },
-    {
-        id:3,
-        title:"Abou baraa Shoes",
-        desc:"AbouBaraaShoes is a refined e-commerce platform designed to offer a seamless shopping experience, blending style with comfort. The storefront features a clean, modern interface categorized into athletic, classic, and promotional sections, ensuring effortless product discovery and navigation.",
-        image:"images/Aboubaraa.webp",
-        link:"",
-        skills:["React","Tailwind css"],
-        date:"march 2026"
-
-    },
+    
     {
     id: 2,
     title: "Lumen Store",
